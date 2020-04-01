@@ -1,1 +1,13 @@
-<h1>Restaurant Profile Page</h1>
+<h1><%= @restaurant.name_chinese %> </h1>
+<h3> <%= @restaurant.name_pinyin %> - <%= @restaurant.name_english %> </h3>
+
+<h3>Cuisine: </h3>
+
+<h3>Address:</h3>
+<ul>
+<li><%= @restaurant.country %></li>
+<li><%= @restaurant.province %></li>
+<li><%= @restaurant.city %></li>
+<li><%= @restaurant.district %></li>
+<li><%= @restaurant.street %></li>
+</ul>
