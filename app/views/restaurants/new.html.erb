@@ -16,14 +16,13 @@
 
 <% end %>
 
-
     <h3>Name:</h3>
-    <%= f.label :name_chinese, "Chinese" %>
-    <%= f.text_field :name_chinese %><br>
-    <%= f.label :name_pinyin, "Pinyin"%>
-    <%= f.text_field :name_pinyin %> <br>
-    <%= f.label :name_english, "English" %>
-    <%= f.text_field :name_english %> <br>
+    <%= f.label :chinese_name %>
+    <%= f.text_field :chinese_name %><br>
+    <%= f.label :pinyin_name %>
+    <%= f.text_field :pinyin_name %> <br>
+    <%= f.label :translated_name %>
+    <%= f.text_field :translated_name %> <br>
     <p>(Add checkboxes for cuisine)</p>
     <h3>Address:</h3>
     <%= f.label :country %>

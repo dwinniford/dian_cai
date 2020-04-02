@@ -1,4 +1,4 @@
 class Restaurant < ApplicationRecord
-    validates :name_chinese, presence: true 
-    validates :name_english, presence: true 
+    validates :chinese_name, presence: true 
+    validates :translated_name, presence: true 
 end

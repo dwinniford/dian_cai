@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 2020_04_01_212317) do
 
   create_table "restaurants", force: :cascade do |t|
-    t.string "name_chinese"
-    t.string "name_pinyin"
-    t.string "name_english"
+    t.string "chinese_name"
+    t.string "pinyin_name"
+    t.string "translated_name"
     t.integer "user_id"
     t.string "country"
     t.string "province"

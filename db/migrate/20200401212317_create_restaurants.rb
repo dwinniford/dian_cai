@@ -1,9 +1,9 @@
 class CreateRestaurants < ActiveRecord::Migration[6.0]
   def change
     create_table :restaurants do |t|
-      t.string :name_chinese
-      t.string :name_pinyin
-      t.string :name_english
+      t.string :chinese_name
+      t.string :pinyin_name
+      t.string :translated_name
       t.integer :user_id
       t.string :country
       t.string :province
