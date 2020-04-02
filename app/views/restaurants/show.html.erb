@@ -11,3 +11,8 @@
 <li><%= @restaurant.district %></li>
 <li><%= @restaurant.street %></li>
 </ul>
+
+<%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) %>
+<%= form_with model: @restaurant, method: "delete"  do |f| %>
+<%= f.submit "Delete"%>
+<% end %>
