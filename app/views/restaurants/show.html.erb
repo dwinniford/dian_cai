@@ -19,4 +19,10 @@
 <%= f.submit "Delete"%>
 <% end %>
 
+<h3>Translations: </h3>
+<ul>
+<% @restaurant.translations.each do |t| %>
+<li><%= link_to  "#{t.title} - #{t.notes} - number of dishes: " , translation_path(t) %> </li>
+<% end %>
+</ul>
 <%= link_to  "Add Translation",  new_restaurant_translation_path(@restaurant) %>

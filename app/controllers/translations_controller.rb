@@ -1,5 +1,6 @@
 class TranslationsController < ApplicationController
     before_action :set_restaurant, only: [:new, :create]
+    before_action :set_translation, only: [:show, :edit, :update]
     
     def new 
         @translation = @restaurant.translations.build 
@@ -14,6 +15,22 @@ class TranslationsController < ApplicationController
         end
     end
 
+    def show 
+        
+    end
+
+    def edit 
+
+    end
+
+    def update 
+        if @translation.update(translation_params)
+            redirect_to translation_path(@translation)
+        else 
+            render :edit 
+        end
+    end
+
     private 
 
     def set_restaurant 
@@ -22,5 +39,9 @@ class TranslationsController < ApplicationController
 
     def translation_params 
         params.require(:translation).permit(:title, :notes, :language_id)
+    end
+
+    def set_translation
+        @translation = Translation.find(params[:id])
     end
 end
