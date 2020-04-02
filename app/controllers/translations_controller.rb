@@ -1,6 +1,6 @@
 class TranslationsController < ApplicationController
     before_action :set_restaurant, only: [:new, :create]
-    before_action :set_translation, only: [:show, :edit, :update]
+    before_action :set_translation, only: [:show, :edit, :update, :destroy]
     
     def new 
         @translation = @restaurant.translations.build 
@@ -29,6 +29,12 @@ class TranslationsController < ApplicationController
         else 
             render :edit 
         end
+    end
+
+    def destroy 
+        @restaurant = @translation.restaurant 
+        @translation.destroy
+        redirect_to restaurant_path(@restaurant)
     end
 
     private 
