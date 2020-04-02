@@ -18,3 +18,5 @@
 <%= form_with model: @restaurant, method: "delete"  do |f| %>
 <%= f.submit "Delete"%>
 <% end %>
+
+<%= link_to  "Add Translation",  new_restaurant_translation_path(@restaurant) %>
