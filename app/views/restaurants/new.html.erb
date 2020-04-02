@@ -1,9 +1,28 @@
+
 <h1>Create a new restaurant profile:</h1>
 
-<%= form_with model: @restaurant do |f| %>
+<%= form_with model: @restaurant, local: true do |f| %>
+
+<% if @restaurant.errors.any? %>
+
+
+  
+    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this article from being saved:</h2>
+ 
+    <ul>
+    <% @restaurant.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+
+<% end %>
+
+
     <h3>Name:</h3>
+    <div id="field">
     <%= f.label :name_chinese, "Chinese" %>
-    <%= f.text_field :name_chinese %> <br>
+    <%= f.text_field :name_chinese %>
+    </div> <br>
     <%= f.label :name_pinyin, "Pinyin"%>
     <%= f.text_field :name_pinyin %> <br>
     <%= f.label :name_english, "English" %>
@@ -21,5 +40,5 @@
     <%= f.label :street %>
     <%= f.text_field :street %> <br>
     
-    <%= f.submit "Create Profile" %>
+    <%= f.submit %>
 <% end %>
