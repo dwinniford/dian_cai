@@ -4,25 +4,22 @@
 <%= form_with model: @restaurant, local: true do |f| %>
 
 <% if @restaurant.errors.any? %>
-
-
-  
-    <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this article from being saved:</h2>
- 
-    <ul>
-    <% @restaurant.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+    <div id="error_explanation">
+        <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this article from being saved:</h2>
+    
+        <ul>
+            <% @restaurant.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
 
 <% end %>
 
 
     <h3>Name:</h3>
-    <div id="field">
     <%= f.label :name_chinese, "Chinese" %>
-    <%= f.text_field :name_chinese %>
-    </div> <br>
+    <%= f.text_field :name_chinese %><br>
     <%= f.label :name_pinyin, "Pinyin"%>
     <%= f.text_field :name_pinyin %> <br>
     <%= f.label :name_english, "English" %>
