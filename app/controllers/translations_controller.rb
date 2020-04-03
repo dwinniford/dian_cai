@@ -16,7 +16,7 @@ class TranslationsController < ApplicationController
     end
 
     def show 
-        
+        @dish = Dish.new
     end
 
     def edit 

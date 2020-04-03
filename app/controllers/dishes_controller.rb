@@ -7,11 +7,18 @@ class DishesController < ApplicationController
 
     def create 
         @dish = @translation.dishes.build(dish_params)
-        if @dish.save 
-            redirect_to dish_path(@dish)
-        else 
-            render :new 
+    
+
+        respond_to do |format|
+     
+            if @dish.save
+                format.html { redirect_to dish_path(@dish) }
+                format.js
+            else 
+                format.html { render :new } 
+            end
         end
+        
     end
 
     def show 

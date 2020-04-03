@@ -1,4 +1,4 @@
-<%= form_with( model: [@translation, @dish] , local: true) do |f| %>
+<%= form_with( model: [@translation, @dish] , remote: true) do |f| %>
     <%= f.hidden_field(:restaurant_id, value: @translation.restaurant_id) if @translation %>
     <%= f.label :chinese_name %>
     <%= f.text_field :chinese_name %><br>

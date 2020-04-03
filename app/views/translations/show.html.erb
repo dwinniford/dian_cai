@@ -2,6 +2,7 @@
 <h3>for: <%= link_to all_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> by: Link to User Page</h3>
 
 <p><%= @translation.notes %> </p>
+
 <nav id="translation">
     <%= link_to  "Edit", edit_translation_path(@translation) %>
     <%= form_with model: @translation, local: true, method: "delete" do |f| %>
@@ -9,14 +10,11 @@
     <% end %>
 <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
 </nav>
+<br>
+<br>
 
-<h3><%= @translation.dishes.count %> Dishes: </h3>
-
-<% @translation.dishes.each do |d| %>
-
-<h4><%= link_to all_names(d), dish_path(d) %></h4>
-<p><%= d.description %></p>
-<p>Ingredients: <%= d.ingredients %></p>
-<p><%= dish_info(d) %></p>
-<% end %>
-</table>
+<h4>Add A Dish</h4>
+<%= render  "dishes/form" %>
+<div class="dish_list">
+<%= render  "dishes/index" %>
+</div>

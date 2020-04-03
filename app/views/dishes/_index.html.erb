@@ -1,0 +1,10 @@
+
+<h3><%= @translation.dishes.count %> Dishes: </h3>
+
+<% @translation.dishes.each do |d| %>
+
+<h4><%= link_to all_names(d), dish_path(d) %></h4>
+<p><%= d.description %></p>
+<p>Ingredients: <%= d.ingredients %></p>
+<p><%= dish_info(d) %></p>
+<% end %>
