@@ -1,4 +1,6 @@
 <%= form_with(model: [@restaurant, @translation] , local: true) do |f| %>
+<%= f.label :language_id %>
+<%= f.collection_select(:language_id, Language.all, :id, :name) %> <br>
 <%= f.label :title %>
 <%= f.text_field :title %> <br>
 <%= f.label :notes %>
