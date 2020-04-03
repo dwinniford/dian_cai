@@ -1,4 +1,4 @@
-<h1>Edit Dish</h1>
-<h3>at: <%= @dish.restaurant.chinese_name %> </h3>
+<h1>Edit <%= link_to  all_names(@dish), dish_path(@dish) %></h1>
+<h3>at: <%= link_to all_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> by: User Name </h3>
 
 <%= render  "form" %>

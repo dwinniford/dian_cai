@@ -1,35 +1,22 @@
 <h1><%= @translation.title %></h1>
-<h3>for: <%= @translation.restaurant.chinese_name %></h3>
+<h3>for: <%= link_to all_names(@translation.restaurant), restaurant_path(@translation.restaurant) %></h3>
 
 <p><%= @translation.notes %> </p>
-
-<%= link_to  "Edit", edit_translation_path(@translation) %>
-<br>
-<br>
-<%= form_with model: @translation, local: true, method: "delete" do |f| %>
-<%= f.submit "Delete" %>
-<% end %>
-
+<nav id="translation">
+    <%= link_to  "Edit", edit_translation_path(@translation) %>
+    <%= form_with model: @translation, local: true, method: "delete" do |f| %>
+    <%= f.submit "Delete" %>
+    <% end %>
 <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
+</nav>
 
 <h3>Dishes: </h3>
-<table>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Ingredients</th>
-<th>Spicy Level</th>
-<th>Price(Yuan)</th>
-<th>Calories</th>
-</tr>
+
 <% @translation.dishes.each do |d| %>
-<tr>
-<td><%= link_to all_names(d), dish_path(d) %></td>
-<td><%= d.description %></td>
-<td><%= d.ingredients %></td>
-<td><%= d.spicy_level %></td>
-<td><%= d.price %></td>
-<td><%= d.calories %></td>
-</tr>
+
+<h4><%= link_to all_names(d), dish_path(d) %></h4>
+<p><%= d.description %></p>
+<p>Ingredients: <%= d.ingredients %></p>
+<p><%= dish_info(d) %></p>
 <% end %>
 </table>

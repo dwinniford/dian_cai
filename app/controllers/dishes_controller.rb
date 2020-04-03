@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
     before_action :set_translation, only: [:new, :create]
-    before_action :set_dish, only: [:show, :edit, :update]
+    before_action :set_dish, only: [:show, :edit, :update, :destroy]
     def new 
         @dish = Dish.new # change to build off translation?
     end
@@ -23,7 +23,17 @@ class DishesController < ApplicationController
     end
 
     def update 
-        
+        if @dish.update(dish_params)
+            redirect_to dish_path(@dish)
+        else 
+            render :edit
+        end
+    end
+
+    def destroy 
+        @translation = @dish.translation
+        @dish.destroy
+        redirect_to translation_path(@translation)
     end
 
     private 

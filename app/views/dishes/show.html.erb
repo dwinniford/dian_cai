@@ -1,7 +1,12 @@
 <h1><%= all_names(@dish) %></h1>
-<h3>at: <%= @dish.restaurant.chinese_name %> </h3>
+<h3>at: <%= link_to all_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> by: User Name </h3>
 <p>Description: <%= @dish.description %></p>
 <p>Ingredients: <%= @dish.ingredients %></p>
 <p>Spicy level(1-5): <%= @dish.spicy_level %></p>
 <p>Price: <%= @dish.price %> yuan</p>
 <p>Calories: <%= @dish.calories %></p>
+<%= link_to  "Edit", edit_dish_path(@dish) %>
+
+<%= form_with(model: @dish , local: true, method: "delete") do |f| %>
+    <% f.submit "Delete" %>
+<% end %>
