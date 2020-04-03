@@ -1,10 +1,4 @@
 <h1>Edit translation for: <%= @translation.restaurant.chinese_name %> </h1>
 
 
-<%= form_with(model: @translation , local: true ) do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %> <br>
-<%= f.label :notes %>
-<%= f.text_field :notes %> <br>
-<%= f.submit %>
-<% end %>
+<%= render  "form" %>
