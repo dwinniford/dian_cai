@@ -1,26 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @restaurant.chinese_name %> </h1>
-<h3> <%= @restaurant.pinyin_name %> - <%= @restaurant.translated_name %> </h3>
+<h1><%= all_names(@restaurant) %> </h1>
+<p>Address: <%= @restaurant.full_address %> </p>
 
-<h3>Cuisine: </h3>
+<h3>Cuisine:</h3>
 <% @restaurant.cuisines.each do |c| %>
-<%= c.english_name %>
+<p><%= c.english_name %></p>
 <% end %>
+<br>
 
-<h3>Address:</h3>
-<ul>
-<li><%= @restaurant.country %></li>
-<li><%= @restaurant.province %></li>
-<li><%= @restaurant.city %></li>
-<li><%= @restaurant.district %></li>
-<li><%= @restaurant.street %></li>
-</ul>
+
+
 
 <%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) %>
-<%= form_with model: @restaurant, method: "delete"  do |f| %>
-<%= f.submit "Delete"%>
-<% end %>
+<%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } %>
+
 
 <h3>Translations: </h3>
 <ul>
