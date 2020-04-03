@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chinese_name: MyString
+  pinyin_name: MyString
+  translated_name: MyString
+  description: MyText
+  ingredients: MyString
+  spicy_level: 1
+  price: 1
+  calories: 1
+  restaurant_id: 1
+  translation_id: 1
+
+two:
+  chinese_name: MyString
+  pinyin_name: MyString
+  translated_name: MyString
+  description: MyText
+  ingredients: MyString
+  spicy_level: 1
+  price: 1
+  calories: 1
+  restaurant_id: 1
+  translation_id: 1
