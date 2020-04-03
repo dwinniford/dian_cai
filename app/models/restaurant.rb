@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
     has_many :translations 
+    has_many :languages, through: :translations 
     has_many :dishes 
     has_and_belongs_to_many :cuisines 
     validates :chinese_name, presence: true 
