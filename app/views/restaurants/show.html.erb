@@ -4,6 +4,9 @@
 <h3> <%= @restaurant.pinyin_name %> - <%= @restaurant.translated_name %> </h3>
 
 <h3>Cuisine: </h3>
+<% @restaurant.cuisines.each do |c| %>
+<%= c.english_name %>
+<% end %>
 
 <h3>Address:</h3>
 <ul>

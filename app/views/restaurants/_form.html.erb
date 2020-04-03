@@ -20,7 +20,8 @@
     <%= f.text_field :pinyin_name %> <br>
     <%= f.label :translated_name %>
     <%= f.text_field :translated_name %> <br>
-    <p>(Add checkboxes for cuisine)</p>
+    <h3>Cuisine</h3>
+    <%=f.collection_check_boxes(:cuisine_ids, Cuisine.all, :id, :english_name) %>
     <h3>Address:</h3>
     <%= f.label :country %>
     <%= f.text_field :country %> <br>
