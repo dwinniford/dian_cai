@@ -1,5 +1,6 @@
 <h1><%= @translation.title %></h1>
 <h3>for: <%= link_to all_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> by: Link to User Page</h3>
+<p>Language: <%= @translation.language.name %> </p>
 
 <p><%= @translation.notes %> </p>
 

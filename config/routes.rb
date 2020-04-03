@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :users
   resources :restaurants do 
     resources :translations, only: [:new, :create]
   end
