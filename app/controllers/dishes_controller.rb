@@ -1,5 +1,6 @@
 class DishesController < ApplicationController
     before_action :set_translation, only: [:new, :create]
+    before_action :set_dish, only: [:show, :edit, :update]
     def new 
         @dish = Dish.new # change to build off translation?
     end
@@ -14,12 +15,24 @@ class DishesController < ApplicationController
     end
 
     def show 
-        @dish = Dish.find(params[:id])
+       
+    end
+
+    def edit 
+
+    end
+
+    def update 
+        
     end
 
     private 
     def set_translation
         @translation = Translation.find(params[:translation_id])
+    end
+
+    def set_dish 
+        @dish = Dish.find(params[:id])
     end
 
     def dish_params 
