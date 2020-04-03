@@ -1,23 +1,4 @@
 <h1>Edit Dish</h1>
 <h3>at: <%= @dish.restaurant.chinese_name %> </h3>
 
-<%= form_with( model: [@translation, @dish] , local: true) do |f| %>
-    
-    <%= f.label :chinese_name %>
-    <%= f.text_field :chinese_name %><br>
-    <%= f.label :pinyin_name %>
-    <%= f.text_field :pinyin_name %> <br>
-    <%= f.label :translated_name %>
-    <%= f.text_field :translated_name %> <br>
-    <%= f.label :description %>
-    <%= f.text_area :description %> <br>
-    <%= f.label :ingredients %>
-    <%= f.text_field :ingredients %> <br>
-    <%= f.label :spicy_level %>
-    <%= f.number_field(:spicy_level, in: 1.0..5.0, step: 0.5) %> <br>
-    <%= f.label :price %>
-    <%= f.number_field(:price, in: 1..300, step: 1) %> <br>
-    <%= f.label :calories %>
-    <%= number_field(:calories, in: 1..2000, step: 10) %> <br>
-    <%= f.submit %>
-<% end %>
+<%= render  "form" %>
