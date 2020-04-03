@@ -1,4 +1,4 @@
-<h1><%= @dish.chinese_name %> - <%= @dish.pinyin_name %> - <%= @dish.translated_name %></h1>
+<h1><%= all_names(@dish) %></h1>
 <h3>at: <%= @dish.restaurant.chinese_name %> </h3>
 <p>Description: <%= @dish.description %></p>
 <p>Ingredients: <%= @dish.ingredients %></p>
