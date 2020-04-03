@@ -1,1 +1,7 @@
-<h1><%= @dish.chinese_name %></h1>
+<h1><%= @dish.chinese_name %> - <%= @dish.pinyin_name %> - <%= @dish.translated_name %></h1>
+<h3>at: <%= @dish.restaurant.chinese_name %> </h3>
+<p>Description: <%= @dish.description %></p>
+<p>Ingredients: <%= @dish.ingredients %></p>
+<p>Spicy level(1-5): <%= @dish.spicy_level %></p>
+<p>Price: <%= @dish.price %> yuan</p>
+<p>Calories: <%= @dish.calories %></p>
