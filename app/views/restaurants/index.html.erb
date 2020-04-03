@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <h1>Choose a Restaurant</h1>
+<%= link_to  "Or add a restaurant", new_restaurant_path %>
 <ul>
 <% @restaurants.each do |r| %>
 <li> <%= link_to  "#{r.chinese_name} - #{r.pinyin_name} - #{r.translated_name}", restaurant_path(r) %> <p>Number of menu translations: </p></li>
