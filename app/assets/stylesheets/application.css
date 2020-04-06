@@ -68,3 +68,9 @@ nav a {
 nav a:hover {
   font-size: 25px;
 }
+
+:lang(zh) {
+  
+  font-family: maShanZheng-regular;
+}
+/* :lang(zh-Hant) 	{font-family: Kai,KaiTi,serif;} */
