@@ -11,6 +11,7 @@
 
   <body>
   <nav>
+  <%= image_tag  "test-logo.jpg", class: "logo" %>
   <%= link_to  "View Restuarants", restaurants_path %>
   <% if session[:user_id] %>
     <%= link_to  "Logged in as: #{current_user.name}", user_path(current_user) %>
