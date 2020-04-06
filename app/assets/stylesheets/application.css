@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ /* @font-face {
+  font-family: aleoLight;
+  src: url('/app/assets/fonts/Aleo-Light.ttf')
+} */
 
  
 .field_with_errors {
@@ -53,10 +57,13 @@ nav {
   grid-template-columns: repeat(5, 1fr);
   
 }
+
+
 nav a {
   color: black;
   font-size: 20px;
   text-decoration: none;
+  font-family: aleoLight;
 }
 nav a:hover {
   font-size: 25px;
