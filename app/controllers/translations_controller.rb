@@ -24,6 +24,7 @@ class TranslationsController < ApplicationController
     end
 
     def update 
+        binding.pry
         if @translation.update(translation_params)
             redirect_to translation_path(@translation)
         else 

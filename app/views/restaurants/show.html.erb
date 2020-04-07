@@ -1,4 +1,4 @@
-<main>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= all_names(@restaurant) %> </h1>
@@ -22,18 +22,18 @@
 <div class="translations-list">
     <% @restaurant.translations.each do |t| %>
         <div class="translation-item">
-            <h4>User Name</h4>
-            <p>date posted</p>
-            <p>
-            First dish: description.... 
-            ingredients....
-            </p>
-            <p>Second dish: description... 
-            ingredients.... 
-            </p>
+            <div class="translation-info">
+                <h4><%= t.user.name %></h4>
+                <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
+            </div>
+            <% t.dishes.first(3).each do |d| %>
+                <div class="dish-preview">
+                    <h5 lang="zh"><%= d.chinese_name %></h5>
+                    <p><%= d.translated_name %></p>
+               </div>
+            <% end %>
             <%= link_to  "See all #{t.dishes.count} dishes" , translation_path(t) %>
         </div>
     <% end %>
 </div>
 <%= link_to  "Add Translation",  new_restaurant_translation_path(@restaurant) %>
-</main>

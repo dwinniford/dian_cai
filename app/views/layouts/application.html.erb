@@ -10,30 +10,32 @@
   </head>
 
   <body>
-  <nav>
-  <%= image_tag  "test-logo.jpg", class: "logo" %>
-  <%= link_to  "View Restuarants", restaurants_path %>
-    <div class="user-links">
-      <% if session[:user_id] %>
-        <div id="avatar">
-          <img src="<%= current_user.image %>" alt="User Avatar">
-        </div>
-        <div class="link1">
-          <%= link_to  "Logged in as: #{current_user.name}", user_path(current_user) %>
-        </div>
-        <div class="link2">
-          <%= link_to  "Logout", sessions_path, method: "delete" %>
-        </div>
-      <% else %>
+    <nav>
+    <%= image_tag  "test-logo.jpg", class: "logo" %>
+    <%= link_to  "View Restuarants", restaurants_path %>
+      <div class="user-links">
+        <% if session[:user_id] %>
+          <div id="avatar">
+            <img src="<%= current_user.image %>" alt="User Avatar">
+          </div>
           <div class="link1">
-            <%= link_to  "Login", login_path %>
+            <%= link_to  "Logged in as: #{current_user.name}", user_path(current_user) %>
           </div>
           <div class="link2">
-            <%= link_to  "Signup", new_user_path  %>
+            <%= link_to  "Logout", sessions_path, method: "delete" %>
           </div>
-      <% end %>
-    </div>
-  </nav>
-    <%= yield %>
+        <% else %>
+            <div class="link1">
+              <%= link_to  "Login", login_path %>
+            </div>
+            <div class="link2">
+              <%= link_to  "Signup", new_user_path  %>
+            </div>
+        <% end %>
+      </div>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
