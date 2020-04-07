@@ -25,6 +25,14 @@ class OrdersController < ApplicationController
 
     end
 
+    def update 
+       if @order.update(order_params)
+            redirect_to order_path(@order)
+       else 
+            render :edit 
+       end
+    end
+
     private 
     def set_restaurant 
         @restaurant = Restaurant.find(params[:restaurant_id])
