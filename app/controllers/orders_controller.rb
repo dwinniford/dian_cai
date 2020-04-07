@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     before_action :set_restaurant, only: [:new, :create]
+    before_action :set_order, only: [:show, :edit, :update, :destroy]
 
     def new 
        
@@ -17,7 +18,11 @@ class OrdersController < ApplicationController
     end
 
     def show 
-        @order = Order.find(params[:id])
+       
+    end
+
+    def edit 
+
     end
 
     private 
@@ -27,5 +32,9 @@ class OrdersController < ApplicationController
 
     def order_params 
         params.require(:order).permit(:name, :people, :dietary_restrictions, :flavor_preferences, :description)
+    end
+
+    def set_order 
+        @order = Order.find(params[:id])
     end
 end
