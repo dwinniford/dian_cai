@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   
-  resources :orders
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new'
@@ -11,12 +10,14 @@ Rails.application.routes.draw do
 
   resources :restaurants do 
     resources :translations, only: [:new, :create]
+    resources :orders, only: [:new, :create]
   end
 
   resources :translations, only: [:show, :edit, :update, :destroy] do 
     resources :dishes, only: [:new, :create]
   end
 
+  resources :orders, only: [:show, :edit, :update, :destroy]
   resources :dishes, only: [:show, :edit, :update, :destroy]
   
   root 'application#home'

@@ -7,7 +7,5 @@ class User < ApplicationRecord
     # validates :password_confirmation, presence: true
     
     
-    def not_using_omniauth? 
-        self.uid == nil 
-    end
+   
 end
