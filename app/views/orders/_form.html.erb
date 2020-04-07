@@ -1,0 +1,13 @@
+<%= form_with( model: [@restaurant, @order] , local: true) do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %> <br>
+<%= f.label :people %>
+<%= f.number_field(:people, in: 1..50, step: 1) %> <br>
+<%= f.label :dietary_restrictions %>
+<%= f.text_field :dietary_restrictions %> <br>
+<%= f.label :flavor_preferences %>
+<%= f.text_field :flavor_preferences %> <br>
+<%= f.label :description %>
+<%= f.text_area :description %> <br>
+<%= f.submit %>
+<% end %>
