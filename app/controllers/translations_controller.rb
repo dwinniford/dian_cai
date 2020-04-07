@@ -8,6 +8,7 @@ class TranslationsController < ApplicationController
 
     def create 
         @translation = @restaurant.translations.build(translation_params)
+        @translation.user = current_user 
         if @translation.save 
             redirect_to translation_path(@translation)
         else 
