@@ -1,1 +1,8 @@
 <h1><%= @order.name %></h1>
+<p>Number of people: <%= @order.people %> --   
+Dietary Restrictions: <%= @order.dietary_restrictions %> --
+Flavor Preferences: <%= @order.flavor_preferences %> -- 
+Description: <%= @order.description  %>
+</p>
+
+<%= link_to  "Edit", edit_order_path(@order) %>
