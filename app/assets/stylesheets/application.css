@@ -58,12 +58,15 @@ nav {
   
 }
 
+body {
+  font-family: aleoLight;
+}
 
 nav a {
   color: black;
   font-size: 20px;
   text-decoration: none;
-  font-family: aleoLight;
+  
 }
 nav a:hover {
   font-size: 25px;
