@@ -9,5 +9,7 @@
 <%= f.text_field :flavor_preferences %> <br>
 <%= f.label :description %>
 <%= f.text_area :description %> <br>
+
+<%= f.collection_check_boxes :dish_ids, @order.restaurant.dishes, :id, :translated_name %> <br>
 <%= f.submit %>
 <% end %>

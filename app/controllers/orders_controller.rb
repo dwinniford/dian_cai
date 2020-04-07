@@ -45,7 +45,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params 
-        params.require(:order).permit(:name, :people, :dietary_restrictions, :flavor_preferences, :description)
+        params.require(:order).permit(:name, :people, :dietary_restrictions, :flavor_preferences, :description, dish_ids: [])
     end
 
     def set_order 
