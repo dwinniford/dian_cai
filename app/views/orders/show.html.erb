@@ -4,9 +4,11 @@ Dietary Restrictions: <%= @order.dietary_restrictions %> --
 Flavor Preferences: <%= @order.flavor_preferences %> -- 
 Description: <%= @order.description  %>
 </p>
+<ul>
 <% @order.dishes.each do |d| %>
-<%= d.translated_name %>
+    <li><%= d.translated_name %></li>
 <% end %>
+</ul>
 
 <%= link_to  "Edit", edit_order_path(@order) %>
 <%= link_to  "Delete", order_path(@order), method: "delete", data: { confirm: 'Are you sure?' } %>
