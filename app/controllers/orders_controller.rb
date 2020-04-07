@@ -33,6 +33,12 @@ class OrdersController < ApplicationController
        end
     end
 
+    def destroy 
+        restaurant = @order.restaurant 
+        @order.destroy 
+        redirect_to restaurant_path(restaurant)
+    end
+
     private 
     def set_restaurant 
         @restaurant = Restaurant.find(params[:restaurant_id])

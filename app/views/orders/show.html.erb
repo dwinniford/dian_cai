@@ -6,3 +6,4 @@ Description: <%= @order.description  %>
 </p>
 
 <%= link_to  "Edit", edit_order_path(@order) %>
+<%= link_to  "Delete", order_path(@order), method: "delete", data: { confirm: 'Are you sure?' } %>
