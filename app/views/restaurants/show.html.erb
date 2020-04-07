@@ -1,3 +1,4 @@
+<main>
 <p id="notice"><%= notice %></p>
 
 <h1><%= all_names(@restaurant) %> </h1>
@@ -17,10 +18,22 @@
 <%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } %>
 
 
-<h3>Translations: </h3>
-<ul>
-<% @restaurant.translations.each do |t| %>
-<li><%= link_to  "#{t.title} - #{t.notes} - number of dishes: " , translation_path(t) %> </li>
-<% end %>
-</ul>
+<h3>Menu Translations: </h3>
+<div class="translations-list">
+    <% @restaurant.translations.each do |t| %>
+        <div class="translation-item">
+            <h4>User Name</h4>
+            <p>date posted</p>
+            <p>
+            First dish: description.... 
+            ingredients....
+            </p>
+            <p>Second dish: description... 
+            ingredients.... 
+            </p>
+            <%= link_to  "See all #{t.dishes.count} dishes" , translation_path(t) %>
+        </div>
+    <% end %>
+</div>
 <%= link_to  "Add Translation",  new_restaurant_translation_path(@restaurant) %>
+</main>
