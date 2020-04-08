@@ -48,6 +48,11 @@
     #notice {
         color: green; }
   
+
+div.alert {
+  color: indianred;
+  font-weight: bold;
+}
 .logo {
   width: 150px;
   
