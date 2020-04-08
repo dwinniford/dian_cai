@@ -1,4 +1,4 @@
-<h1><%= @order.name %></h1>
+<h1><%= @order.name %> at <%= link_to  @order.restaurant.translated_name, restaurant_path(@order.restaurant) %> </h1>
 <p>by: <%= link_to  @order.user.name, user_path(@order.user) %> Number of people: <%= @order.people %> --   
 Dietary Restrictions: <%= @order.dietary_restrictions %> --
 Flavor Preferences: <%= @order.flavor_preferences %> -- 

@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
         @order = @restaurant.orders.build(order_params)
         @order.user = current_user
         if @order.save 
-            redirect_to order_path(@order)
+            redirect_to order_path(@order), notice: "Order was successfully created."
         else 
             render :new 
         end
@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
 
     def update 
        if @order.update(order_params)
-            redirect_to order_path(@order)
+            redirect_to order_path(@order), notice: "Order was successfully updated."
        else 
             render :edit 
        end
@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
     def destroy 
         restaurant = @order.restaurant 
         @order.destroy 
-        redirect_to restaurant_path(restaurant)
+        redirect_to restaurant_path(restaurant), notice: "Order was successfully deleted."
     end
 
     private 

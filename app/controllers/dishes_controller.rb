@@ -15,7 +15,7 @@ class DishesController < ApplicationController
         respond_to do |format|
      
             if @dish.save
-                format.html { redirect_to dish_path(@dish) }
+                format.html { redirect_to dish_path(@dish), notice: "Dish was successfully created." }
                 format.js
             else 
                 format.html { render :new } 
@@ -35,7 +35,7 @@ class DishesController < ApplicationController
 
     def update 
         if @dish.update(dish_params)
-            redirect_to dish_path(@dish)
+            redirect_to dish_path(@dish), notice: "Dish was successfully updated."
         else 
             render :edit
         end
@@ -44,7 +44,7 @@ class DishesController < ApplicationController
     def destroy 
         @translation = @dish.translation
         @dish.destroy
-        redirect_to translation_path(@translation)
+        redirect_to translation_path(@translation), notice: "Dish was successfully deleted."
     end
 
     private 
