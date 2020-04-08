@@ -19,11 +19,12 @@ class SessionsController < ApplicationController
     end
 
     def create 
-        @user = User.find_by(name: params[:user][:name])
+        @user = User.find_by(name: params[:user][:name], email: params[:user][:email])
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
         else 
+            flash.alert = "Log in Failed"
             render :new
         end
     end

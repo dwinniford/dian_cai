@@ -13,10 +13,7 @@
  *= require_tree .
  *= require_self
  */
- /* @font-face {
-  font-family: aleoLight;
-  src: url('/app/assets/fonts/Aleo-Light.ttf')
-} */
+
 
  
 .field_with_errors {
@@ -29,29 +26,9 @@
   font-weight: bold;
 }
 
-  /* #error_explanation {
-    width: 450px;
-    border: 2px solid indianred;
-    padding: 7px 7px 0;
-    margin-bottom: 20px;
-    background-color: #f0f0f0; }
-  
-  #error_explanation h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px -7px 0;
-    background-color: indianred;
-    color: #fff; }
-  
-  #error_explanation ul li {
-    font-size: 12px;
-    list-style: square; } */
+#notice {
+    color: green; }
 
-    #notice {
-        color: green; }
-  
 
 div.alert {
   color: indianred;
@@ -80,7 +57,7 @@ nav a {
 nav a:hover {
   font-size: 25px;
 }
-/* 75-82 is not doing what i want */
+
 div.user-links {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
@@ -101,8 +78,7 @@ div.user-links>div.link2 {
 }
 
 :lang(zh) {
-  
   font-family: maShanZheng-regular;
 }
-/* :lang(zh-Hant) 	{font-family: Kai,KaiTi,serif;} */
+
 
