@@ -1,5 +1,6 @@
 <h1><%= all_names(@dish) %></h1>
-<h3>at: <%= link_to all_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> by: User Name </h3>
+<h3>at: <%= link_to all_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> 
+by: <%= link_to  @dish.translation.user.name, user_path(@dish.translation.user) %> </h3>
 <p>Description: <%= @dish.description %></p>
 <p>Ingredients: <%= @dish.ingredients %></p>
 <p>Spicy level(1-5): <%= @dish.spicy_level %></p>
