@@ -1,4 +1,15 @@
 <%= form_with(model: [@restaurant, @translation] , local: true) do |f| %>
+
+<% if @translation.errors.any? %>
+    <div id="error_explanation">
+       <ul>
+            <% @translation.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+
+<% end %>
 <%= f.label :language_id %>
 <%= f.collection_select(:language_id, Language.all, :id, :name) %> <br>
 <%= f.label :title %>
