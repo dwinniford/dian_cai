@@ -1,6 +1,6 @@
-<h1>Comment on: <%= @comment.translation.title %></h1>
+<h1>Comment on: <%= link_to @comment.translation.title, translation_path(@comment.translation) %></h1>
 <div class="comment-content">
-        <p> <%= @comment.title %>, from: <%= @comment.user.name %>, on: <%= @comment.created_at.strftime("%m/%d/%Y") %> </p>
+        <p> <%= @comment.title %>, from: <%= link_to @comment.user.name, user_path(@comment.user) %>, on: <%= @comment.created_at.strftime("%m/%d/%Y") %> </p>
         <p> <%= @comment.content %> </p>
         <p>Rating: <%= @comment.rating %> </p>
 </div>
