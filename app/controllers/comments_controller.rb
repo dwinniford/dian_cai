@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
         @comment = @translation.comments.build(comment_params)
         @comment.user = current_user
         if @comment.save 
-            redirect_to translation_path(@translation)
+            redirect_to translation_path(@translation), notice: "Comment was successfully posted."
         else 
             render :new 
         end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
     def update 
         if @comment.update(comment_params)
-            redirect_to translation_path(@comment.translation)
+            redirect_to translation_path(@comment.translation), notice: "Comment was successfully updated."
         else 
             render :edit 
         end
@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     def destroy 
         @translation = @comment.translation 
         @comment.destroy 
-        redirect_to translation_path(@translation)
+        redirect_to translation_path(@translation), notice: "Comment was successfully deleted."
     end
 
     private 
