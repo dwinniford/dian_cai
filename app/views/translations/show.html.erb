@@ -17,7 +17,10 @@
 <h4>Add A Dish</h4>
 <%= render  "dishes/form" %>
 <div class="dish_list">
-<%= render  "dishes/index" %>
+    <%= render  "dishes/index" %>
+</div>
+<div class="comment-list">
+    <%= render  "comments/index" %>
 </div>
 
 <%= link_to "Make a Comment", new_translation_comment_path(@translation) %>
