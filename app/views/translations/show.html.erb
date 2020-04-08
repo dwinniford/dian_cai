@@ -6,10 +6,8 @@
 
 <nav id="translation">
     <%= link_to  "Edit", edit_translation_path(@translation) %>
-    <%= form_with model: @translation, local: true, method: "delete" do |f| %>
-    <%= f.submit "Delete" %>
-    <% end %>
-<%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
+    <%= link_to  "Delete", translation_path(@translation), method: "delete" %>
+    <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
 </nav>
 <br>
 <br>
