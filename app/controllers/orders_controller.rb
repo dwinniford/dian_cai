@@ -51,4 +51,10 @@ class OrdersController < ApplicationController
     def set_order 
         @order = Order.find(params[:id])
     end
+
+    def user_has_permission? 
+        unless current_user == @order.user 
+            redirect_to order_path(@order), alert: "You do not have permission to perform this action."
+        end
+    end
 end
