@@ -4,6 +4,7 @@
         <div class="order-info">
             <h4><%= order.user.name %></h4>
             <p><%= order.created_at.strftime("%m/%d/%Y") %></p>
+            <p><%= order.people %> people</p>
         </div>
         <% order.dishes.first(3).each do |d| %>
             <div class="dish-preview">
