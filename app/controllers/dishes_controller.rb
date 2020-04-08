@@ -1,6 +1,8 @@
 class DishesController < ApplicationController
     before_action :set_translation, only: [:new, :create]
     before_action :set_dish, only: [:show, :edit, :update, :destroy]
+    skip_before_action :check_if_logged_in, only: [:show]
+    
     def new 
         @dish = Dish.new # change to build off translation?
     end

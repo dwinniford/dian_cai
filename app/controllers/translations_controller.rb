@@ -1,6 +1,7 @@
 class TranslationsController < ApplicationController
     before_action :set_restaurant, only: [:new, :create]
     before_action :set_translation, only: [:show, :edit, :update, :destroy]
+    skip_before_action :check_if_logged_in, only: [:show]
     
     def new 
         @translation = @restaurant.translations.build 

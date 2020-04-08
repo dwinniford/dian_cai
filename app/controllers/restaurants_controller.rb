@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
     before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+    skip_before_action :check_if_logged_in, only: [:show, :index]
+
     def index 
         @restaurants = Restaurant.all
     end

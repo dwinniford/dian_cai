@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     before_action :set_translation, only: [:new, :create]
     before_action :set_comment, only: [:show, :edit, :update, :destroy]
+    skip_before_action :check_if_logged_in, only: [:show]
     
     def new 
         @comment = @translation.comments.build
