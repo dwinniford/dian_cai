@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
     before_action :set_translation, only: [:new, :create]
+    
     def new 
-        
         @comment = @translation.comments.build
     end
 
@@ -13,7 +13,10 @@ class CommentsController < ApplicationController
         else 
             render :new 
         end
+    end
 
+    def show 
+        @comment = Comment.find(params[:id])
     end
 
     private 

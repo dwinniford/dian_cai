@@ -1,0 +1,8 @@
+<h1>Comment on: <%= @comment.translation.title %></h1>
+<div class="comment-content">
+        <p> <%= @comment.title %>, from: <%= @comment.user.name %>, on: <%= @comment.created_at.strftime("%m/%d/%Y") %> </p>
+        <p> <%= @comment.content %> </p>
+        <p>Rating: <%= @comment.rating %> </p>
+</div>
+
+<%= link_to  "Edit", edit_comment_path %>
