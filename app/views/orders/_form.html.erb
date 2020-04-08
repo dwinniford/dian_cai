@@ -20,7 +20,18 @@
 <%= f.text_field :flavor_preferences %> <br>
 <%= f.label :description %>
 <%= f.text_area :description %> <br>
+<h3>Dishes: </h3>
+<br>
+<%= f.fields_for :dish_orders do |dish_orders_form| %>
+    <%= dish_orders_form.collection_select :dish_id, @order.restaurant.dishes, :id, :translated_name %> 
+    <%= dish_orders_form.label :quantity %>
+    <%= dish_orders_form.number_field(:quantity, in: 0..10, step: 1) %> <br>
+    <%= dish_orders_form.label :special_requests %>
+    <%= dish_orders_form.text_field :special_requests  %>
+    <br>
+    <br>
+<% end %>
+<br>
 
-<%= f.collection_check_boxes :dish_ids, @order.restaurant.dishes, :id, :translated_name %> <br>
 <%= f.submit %>
 <% end %>

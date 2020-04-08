@@ -6,9 +6,14 @@ class OrdersController < ApplicationController
     def new 
        
         @order = @restaurant.orders.build 
+        5.times {@order.dish_orders.build }
     end
 
     def create 
+        binding.pry
+        order_params[:dish_orders_attributes].delete_if do |k, v|
+            v[:quantity].to_i == 0           
+        end
         @order = @restaurant.orders.build(order_params)
         @order.user = current_user
         if @order.save 
@@ -46,7 +51,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params 
-        params.require(:order).permit(:name, :people, :dietary_restrictions, :flavor_preferences, :description, dish_ids: [])
+        params.require(:order).permit(:name, :people, :dietary_restrictions, :flavor_preferences, :description, dish_orders_attributes: [:dish_id, :quantity, :special_requests] )
     end
 
     def set_order 
