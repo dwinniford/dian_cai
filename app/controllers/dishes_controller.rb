@@ -19,6 +19,7 @@ class DishesController < ApplicationController
                 format.js
             else 
                 format.html { render :new } 
+                
             end
         end
         

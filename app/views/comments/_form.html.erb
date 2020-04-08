@@ -1,9 +1,18 @@
 <%= form_with( model: [@translation, @comment] , local: true) do |f| %>
+    <% if @comment.errors.any? %>
+        <div id="error_explanation">
+            <ul>
+                <% @comment.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 <%= f.label :title %>
 <%= f.text_field :title %> <br>
 <%= f.label :content %> <br>
 <%= f.text_area :content %> <br>
 <%= f.label :rating %>
-<%= f.number_field(:rating, in: 1.0..5.0, step: 0.5) %> <br>
+<%= f.number_field(:rating, in: 0.0..5.0, step: 0.5) %> <br>
 <%= f.submit %>
 <% end %>

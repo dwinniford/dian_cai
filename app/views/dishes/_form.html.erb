@@ -1,13 +1,5 @@
 <%= form_with( model: [@translation, @dish] , remote: true) do |f| %>
-    <% if @dish.errors.any? %>
-        <div id="error_explanation">
-            <ul>
-                <% @dish.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-            </ul>
-        </div>
-    <% end %>
+    
     <%= f.hidden_field(:restaurant_id, value: @translation.restaurant_id) if @translation %>
     <%= f.label :chinese_name %>
     <%= f.text_field :chinese_name %><br>
