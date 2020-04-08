@@ -13,7 +13,7 @@ class TranslationsController < ApplicationController
         @translation = @restaurant.translations.build(translation_params)
         @translation.user = current_user 
         if @translation.save 
-            redirect_to translation_path(@translation)
+            redirect_to translation_path(@translation), notice: "Translation was successfully created."
         else 
             render :new 
         end
@@ -29,7 +29,7 @@ class TranslationsController < ApplicationController
 
     def update 
         if @translation.update(translation_params)
-            redirect_to translation_path(@translation)
+            redirect_to translation_path(@translation), notice: "Translation was succesfully updated."
         else 
             render :edit 
         end
@@ -38,7 +38,7 @@ class TranslationsController < ApplicationController
     def destroy 
         @restaurant = @translation.restaurant 
         @translation.destroy
-        redirect_to restaurant_path(@restaurant)
+        redirect_to restaurant_path(@restaurant), notice: "Translation was successfully destroyed."
     end
 
     private 
