@@ -3,4 +3,5 @@ class Translation < ApplicationRecord
     has_many :dishes 
     belongs_to :language 
     belongs_to :user 
+    has_many :comments 
 end
