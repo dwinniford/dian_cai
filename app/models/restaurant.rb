@@ -6,8 +6,8 @@ class Restaurant < ApplicationRecord
     belongs_to :user 
     has_many :orders 
     
-    validates :chinese_name, presence: true 
-    validates :translated_name, presence: true 
+    validates :chinese_name, :translated_name, :country, :province, :city, :district, :street, presence: true 
+   
 
     def full_address
         "#{country}, #{province}, #{city}, #{district}, #{street}"
