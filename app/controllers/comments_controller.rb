@@ -33,6 +33,12 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy 
+        @translation = @comment.translation 
+        @comment.destroy 
+        redirect_to translation_path(@translation)
+    end
+
     private 
     def set_translation 
         @translation = Translation.find(params[:translation_id])
