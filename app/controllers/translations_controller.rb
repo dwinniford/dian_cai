@@ -2,6 +2,8 @@ class TranslationsController < ApplicationController
     before_action :set_restaurant, only: [:new, :create]
     before_action :set_translation, only: [:show, :edit, :update, :destroy]
     skip_before_action :check_if_logged_in, only: [:show]
+    before_action :user_has_permission?, only: [:edit, :update, :destroy]
+    
     
     def new 
         @translation = @restaurant.translations.build 
@@ -51,5 +53,11 @@ class TranslationsController < ApplicationController
 
     def set_translation
         @translation = Translation.find(params[:id])
+    end
+
+    def user_has_permission? 
+        unless current_user == @translation.user 
+            redirect_to translation_path(@translation), alert: "You do not have permission to perform this action."
+        end
     end
 end
