@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
     before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+    before_action :user_has_permission?, only: [:edit, :update, :destroy]
     skip_before_action :check_if_logged_in, only: [:show, :index]
 
     def index 
@@ -45,5 +46,11 @@ class RestaurantsController < ApplicationController
 
     def set_restaurant 
         @restaurant = Restaurant.find(params[:id])
+    end
+
+    def user_has_permission? 
+        unless current_user == @restaurant.user 
+            redirect_to restaurant_path(@restaurant), alert: "You do not have permission to perform this action."
+        end
     end
 end
