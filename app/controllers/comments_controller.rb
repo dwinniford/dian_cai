@@ -17,12 +17,20 @@ class CommentsController < ApplicationController
     end
 
     def show 
-        
+
     end
         
 
     def edit 
 
+    end
+
+    def update 
+        if @comment.update(comment_params)
+            redirect_to translation_path(@comment.translation)
+        else 
+            render :edit 
+        end
     end
 
     private 
