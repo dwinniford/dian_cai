@@ -1,0 +1,17 @@
+<h1 lang="zh"><%= @restaurant.chinese_name %> </h1>
+<h2><%= link_to non_chinese_names(@restaurant), restaurant_path(@restaurant) %> </h2>
+
+<p>Address: <%= @restaurant.full_address %> </p>
+
+<h4>Cuisine:</h4>
+<% @restaurant.cuisines.each do |c| %>
+<p><%= c.english_name %></p>
+<% end %>
+<p> Profile created by: <%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
+
+
+<nav class="restaurant">
+    <%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) %>
+    <%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } %>
+    <%= link_to  "View all dishes", restaurant_dishes_path(@restaurant) %>
+</nav>
