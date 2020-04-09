@@ -10,31 +10,30 @@
         </div>
     <% end %>
 
-<%= f.label :name %>
-<%= f.text_field :name %> <br>
-<%= f.label :people %>
-<%= f.number_field(:people, in: 1..50, step: 1) %> <br>
-<%= f.label :dietary_restrictions %>
-<%= f.text_field :dietary_restrictions %> <br>
-<%= f.label :flavor_preferences %>
-<%= f.text_field :flavor_preferences %> <br>
-<%= f.label :description %>
-<%= f.text_area :description %> <br>
-<h3>Dishes: </h3>
-<br>
-<%= f.fields_for :dish_orders do |dish_orders_form| %>
-    <%= dish_orders_form.object.dish.translated_name %> 
-    <%= dish_orders_form.label :quantity %>
-    <%= dish_orders_form.number_field(:quantity, in: 0..10, step: 1) %> <br>
-    <%= dish_orders_form.label :special_requests %>
-    <%= dish_orders_form.text_field :special_requests  %>
-    <%= form_with(model: dish_orders_form.object , local: true, method: "delete") do |f| %>
-    <%= f.submit "Remove from order"%>
+    <%= f.label :name %>
+    <%= f.text_field :name %> <br>
+    <%= f.label :people %>
+    <%= f.number_field(:people, in: 1..50, step: 1) %> <br>
+    <%= f.label :dietary_restrictions %>
+    <%= f.text_field :dietary_restrictions %> <br>
+    <%= f.label :flavor_preferences %>
+    <%= f.text_field :flavor_preferences %> <br>
+    <%= f.label :description %>
+    <%= f.text_area :description %> <br>
+
+    <h3>Dishes: </h3>
+    <br>
+    <%= f.fields_for :dish_orders do |dish_orders_form| %>
+        <%= dish_orders_form.object.dish.translated_name %> 
+        <%= dish_orders_form.hidden_field :dish_id, value: dish_orders_form.object.dish_id  %>
+        <%= dish_orders_form.label :quantity %>
+        <%= dish_orders_form.number_field(:quantity, in: 0..10, step: 1) %> <br>
+        <%= dish_orders_form.label :special_requests %>
+        <%= dish_orders_form.text_field :special_requests  %>
+        <%= link_to  "Remove from Order", dish_order_path(dish_orders_form.object), method: "delete" %>        
+        <br>
+        <br>
     <% end %>
     <br>
-    <br>
-<% end %>
-<br>
-
-<%= f.submit %>
+    <%= f.submit %>
 <% end %>
