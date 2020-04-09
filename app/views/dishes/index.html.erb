@@ -14,4 +14,14 @@
     <%= f.submit "Add to order" %>
 <% end %>
 
+<%= form_with( model: [@restaurant, @new_order_with_dish_order] , local: true) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.fields_for :dish_orders do |dish_orders_form| %>
+        <%= dish_orders_form.hidden_field(:dish_id, value: dish.id) %>
+    <% end %>
+    <%= f.submit "Add to new order" %>
+<% end %>
+
+
 <% end %>

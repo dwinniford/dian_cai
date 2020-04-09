@@ -4,20 +4,14 @@ class OrdersController < ApplicationController
     before_action :user_has_permission?, only: [:edit, :update, :destroy]
 
     def new 
-       
         @order = @restaurant.orders.build 
-        5.times {@order.dish_orders.build }
     end
 
     def create 
-        binding.pry
-        order_params[:dish_orders_attributes].delete_if do |k, v|
-            v[:quantity].to_i == 0           
-        end
         @order = @restaurant.orders.build(order_params)
         @order.user = current_user
         if @order.save 
-            redirect_to order_path(@order), notice: "Order was successfully created."
+            redirect_to edit_order_path(@order), notice: "Order was successfully created."
         else 
             render :new 
         end

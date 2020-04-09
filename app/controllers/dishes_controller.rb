@@ -6,6 +6,7 @@ class DishesController < ApplicationController
 
     def new 
         @dish = Dish.new # change to build off translation?
+       
     end
 
     def create 
@@ -49,6 +50,8 @@ class DishesController < ApplicationController
 
     def index 
         @restaurant = Restaurant.find(params[:restaurant_id])
+        @new_order_with_dish_order = Order.new
+        @new_order_with_dish_order.dish_orders.build 
     end
 
     private 

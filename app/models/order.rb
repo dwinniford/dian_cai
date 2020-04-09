@@ -3,6 +3,6 @@ class Order < ApplicationRecord
     belongs_to :restaurant 
     has_many :dish_orders 
     has_many :dishes, through: :dish_orders
-    validates :name, :people, :dish_orders, presence: true 
+    validates :name, presence: true  
     accepts_nested_attributes_for :dish_orders
 end

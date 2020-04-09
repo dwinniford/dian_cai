@@ -11,9 +11,7 @@ class SessionsController < ApplicationController
             u.email = auth['info']['email']
             u.image = auth['info']['image']
             u.password= SecureRandom.hex
-           
         end
-        
         session[:user_id] = @user.id 
         redirect_to user_path(@user)
     end
@@ -31,7 +29,7 @@ class SessionsController < ApplicationController
 
     def destroy 
         session[:user_id] = nil 
-        redirect_to root_path
+        redirect_to root_path, notice: "Successfully Logged Out."
     end
 
     private 
