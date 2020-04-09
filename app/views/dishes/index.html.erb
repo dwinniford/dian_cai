@@ -8,4 +8,10 @@
 <p><%= dish.description %></p>
 <p>Ingredients: <%= dish.ingredients %></p>
 <p><%= dish_info(dish) %></p>
+
+<%= form_with( model: [dish, dish.dish_orders.build] , local: true) do |f| %>
+    <%= f.collection_select(:order_id, current_user.orders, :id, :name)%>
+    <%= f.submit "Add to order" %>
+<% end %>
+
 <% end %>
