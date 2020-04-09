@@ -19,6 +19,7 @@
     <%= f.text_field :name %>
     <%= f.fields_for :dish_orders do |dish_orders_form| %>
         <%= dish_orders_form.hidden_field(:dish_id, value: dish.id) %>
+        <%= dish_orders_form.hidden_field(:quantity, value: 1) %>
     <% end %>
     <%= f.submit "Add to new order" %>
 <% end %>
