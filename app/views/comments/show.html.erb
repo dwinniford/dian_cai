@@ -4,6 +4,7 @@
         <p> <%= @comment.content %> </p>
         <p>Rating: <%= @comment.rating %> </p>
 </div>
-
-<%= link_to  "Edit", edit_comment_path(@comment) %>
-<%= link_to  "Delete", comment_path(@comment), method: "delete", data: { confirm: 'Are you sure?' }  %>
+<% if user_has_permission?(@comment) %>
+        <%= link_to  "Edit", edit_comment_path(@comment) %>
+        <%= link_to  "Delete", comment_path(@comment), method: "delete", data: { confirm: 'Are you sure?' }  %>
+<% end %>
