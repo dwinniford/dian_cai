@@ -2,17 +2,16 @@
 <% @restaurant.orders.each do |order| %>
     <div class="order-item">
         <div class="order-info">
-            <h4><%= order.user.name %></h4>
+            <h4> <%= link_to  order.name, order_path(order) %> by <%= link_to order.user.name, user_path(order.user) %></h4>
             <p><%= order.created_at.strftime("%m/%d/%Y") %></p>
-            <p><%= order.people %> people</p>
+            <p> <%= order.dishes.count%> dishes for <%= order.people %> people</p>
+            <p>Dietary Restrictions: <%=order.dietary_restrictions %> </p>
+            <p>Flavor preferences: <%= order.flavor_preferences %> </p>
+            <p>Description: <%= order.description %> </p>
         </div>
-        <% order.dishes.first(3).each do |d| %>
-            <div class="dish-preview">
-                <h5 lang="zh"><%= d.chinese_name %></h5>
-                <p><%= d.translated_name %></p>
-            </div>
-        <% end %>
-        <%= link_to  "See all #{order.dishes.count} dishes" , order_path(order) %>
+        <%= render  partial: "dishes/preview_index", locals: {dishes: order.dishes.first(3)} %>
+        
+        
     </div>
 <% end %>
 </div>
