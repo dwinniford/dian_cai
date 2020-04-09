@@ -23,11 +23,14 @@
 <h3>Dishes: </h3>
 <br>
 <%= f.fields_for :dish_orders do |dish_orders_form| %>
-    <%= dish_orders_form.collection_select :dish_id, @order.restaurant.dishes, :id, :translated_name %> 
+    <%= dish_orders_form.object.dish.translated_name %> 
     <%= dish_orders_form.label :quantity %>
     <%= dish_orders_form.number_field(:quantity, in: 0..10, step: 1) %> <br>
     <%= dish_orders_form.label :special_requests %>
     <%= dish_orders_form.text_field :special_requests  %>
+    <%= form_with(model: dish_orders_form.object , local: true, method: "delete") do |f| %>
+    <%= f.submit "Remove from order"%>
+    <% end %>
     <br>
     <br>
 <% end %>

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :dishes, only: [:show, :edit, :update, :destroy] do 
     resources :dish_orders, only: [:create]
   end
+  resources :dish_orders, only: [:destroy]
   resources :comments, only: [:show, :edit, :update, :destroy]
    
   
