@@ -9,6 +9,7 @@
                 <h4> <%= link_to t.title, translation_path(t) %> by <%= link_to t.user.name, user_path(t.user) %></h4>
                 <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
                 <p> <%= t.notes %> </p>
+                <p> <%= t.comments.count %> comments, <%= t.average_rating %>/5 rating</p>
             </div>
             <% t.dishes.first(3).each do |d| %>
                 <div class="dish-preview">
