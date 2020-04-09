@@ -3,19 +3,21 @@
 <p>Language: <%= @translation.language.name %> </p>
 
 <p><%= @translation.notes %> </p>
+<% if user_has_permission?(@translation) %>
+    <nav id="translation">
+        <%= link_to  "Edit", edit_translation_path(@translation) %>
+        <%= link_to  "Delete", translation_path(@translation), method: "delete" %>
+        <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
+    </nav>
+    <br>
+    <br>
 
-<nav id="translation">
-    <%= link_to  "Edit", edit_translation_path(@translation) %>
-    <%= link_to  "Delete", translation_path(@translation), method: "delete" %>
-    <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
-</nav>
-<br>
-<br>
+    <h4>Add A Dish</h4>
+    <div class="dish-form">
+        <%= render  "dishes/form" %>
+    </div>
+<% end %>
 
-<h4>Add A Dish</h4>
-<div class="dish-form">
-    <%= render  "dishes/form" %>
-</div>
 <div class="dish_list">
     <%= render  "dishes/index" %>
 </div>

@@ -1,15 +1,22 @@
-<h1><%= @order.name %> at <%= link_to  @order.restaurant.translated_name, restaurant_path(@order.restaurant) %> </h1>
-<p>by: <%= link_to  @order.user.name, user_path(@order.user) %> Number of people: <%= @order.people %> --   
-Dietary Restrictions: <%= @order.dietary_restrictions %> --
-Flavor Preferences: <%= @order.flavor_preferences %> -- 
-Description: <%= @order.description  %>
-</p>
-<ul>
-<% @order.dishes.each do |d| %>
-    <li><%= d.translated_name %></li>
-<% end %>
-</ul>
-
+<h1 lang="zh"><%= @order.restaurant.chinese_name %></h1>
+<h3><%= @order.name %> at <%= link_to  non_chinese_names(@order.restaurant), restaurant_path(@order.restaurant) %></h3>
+<p>by: <%= link_to  @order.user.name, user_path(@order.user) %></p>
+<p>Number of people: <%= @order.people %></p>
+<p>Dietary Restrictions: <%= @order.dietary_restrictions %></p>
+<p>Flavor Preferences: <%= @order.flavor_preferences %></p>
+<p>Description: <%= @order.description  %></p>
+<nav class="order">
 <%= link_to  "Edit", edit_order_path(@order) %>
 <%= link_to  "Delete", order_path(@order), method: "delete", data: { confirm: 'Are you sure?' } %>
 <%= link_to  "Add more dishes", restaurant_dishes_path(@order.restaurant) %>
+</nav>
+
+<% @order.dishes.each do |d| %>
+    <h3 lang="zh"> <%= d.chinese_name %> </h3>
+    <p> <%= non_chinese_names(d) %></p>
+    <p>Description: <%= d.description %></p>
+    <p>Ingredients: <%= d.ingredients %></p>
+    <p>Spicy level(1-5): <%= d.spicy_level %> -- Price: <%= d.price %> yuan</p>
+<% end %>
+
+
