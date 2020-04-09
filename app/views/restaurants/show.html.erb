@@ -11,10 +11,11 @@
 <p> Profile created by: <%= @restaurant.user.name %></p>
 
 
-
-<%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) %>
-<%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } %>
-
+<nav class="restaurant">
+    <%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) %>
+    <%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } %>
+    <%= link_to  "View all dishes", restaurant_dishes_path(@restaurant) %>
+</nav>
 
 <h3>Menu Translations: </h3>
 <div class="translations-list">

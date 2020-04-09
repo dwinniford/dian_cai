@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :restaurants do 
     resources :translations, only: [:new, :create]
     resources :orders, only: [:new, :create]
+    resources :dishes, only: [:index]
   end
 
   resources :translations, only: [:show, :edit, :update, :destroy] do 

@@ -47,6 +47,10 @@ class DishesController < ApplicationController
         redirect_to translation_path(@translation), notice: "Dish was successfully deleted."
     end
 
+    def index 
+        @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
     private 
     def set_translation
         @translation = Translation.find(params[:translation_id])
