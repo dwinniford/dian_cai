@@ -6,8 +6,8 @@ by: <%= link_to  @dish.translation.user.name, user_path(@dish.translation.user) 
 <p>Spicy level(1-5): <%= @dish.spicy_level %></p>
 <p>Price: <%= @dish.price %> yuan</p>
 <p>Calories: <%= @dish.calories %></p>
-<%= link_to  "Edit", edit_dish_path(@dish) %>
-
-<%= form_with(model: @dish , local: true, method: "delete") do |f| %>
-    <% f.submit "Delete" %>
+<% if user_has_permission?(@dish.translation) %>
+    <%= link_to  "Edit", edit_dish_path(@dish) %>
+    <%= link_to  "Delete", dish_path(@dish), method: "delete" %>
 <% end %>
+

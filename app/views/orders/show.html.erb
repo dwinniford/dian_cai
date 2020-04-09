@@ -5,11 +5,13 @@
 <p>Dietary Restrictions: <%= @order.dietary_restrictions %></p>
 <p>Flavor Preferences: <%= @order.flavor_preferences %></p>
 <p>Description: <%= @order.description  %></p>
-<nav class="order">
-<%= link_to  "Edit", edit_order_path(@order) %>
-<%= link_to  "Delete", order_path(@order), method: "delete", data: { confirm: 'Are you sure?' } %>
-<%= link_to  "Add more dishes", restaurant_dishes_path(@order.restaurant) %>
-</nav>
+<% if user_has_permission?(@order) %>
+    <nav class="order">
+    <%= link_to  "Edit", edit_order_path(@order) %>
+    <%= link_to  "Delete", order_path(@order), method: "delete", data: { confirm: 'Are you sure?' } %>
+    <%= link_to  "Add more dishes", restaurant_dishes_path(@order.restaurant) %>
+    </nav>
+<% end %>
 
 <% @order.dishes.each do |d| %>
     <h3 lang="zh"> <%= d.chinese_name %> </h3>
