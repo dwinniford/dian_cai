@@ -12,6 +12,14 @@ class DishOrdersController < ApplicationController
         end 
     end
 
+    def destroy 
+        dish_order = DishOrder.find(params[:id])
+        order = dish_order.order
+        dish_order.destroy 
+        redirect_to order_path(order), notice: "Dish was successfully removed from order."
+
+    end
+
     private 
     def dish_order_params
         params.require(:dish_order).permit(:order_id)
