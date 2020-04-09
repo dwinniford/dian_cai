@@ -6,16 +6,18 @@
     <% @restaurant.translations.each do |t| %>
         <div class="translation-item">
             <div class="translation-info">
-                <h4><%= t.user.name %></h4>
+                <h4> <%= link_to t.title, translation_path(t) %> by <%= link_to t.user.name, user_path(t.user) %></h4>
                 <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
+                <p> <%= t.notes %> </p>
             </div>
             <% t.dishes.first(3).each do |d| %>
                 <div class="dish-preview">
-                    <h5 lang="zh"><%= d.chinese_name %></h5>
-                    <p><%= d.translated_name %></p>
+                    <h4 lang="zh"><%= d.chinese_name %></h4>
+                    <p><%= non_chinese_names(d) %></p>
+                    <p> <%= d.description %> </p>
                </div>
             <% end %>
-            <%= link_to  "See all #{t.dishes.count} dishes" , translation_path(t) %>
+            
         </div>
     <% end %>
 </div>

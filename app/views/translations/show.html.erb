@@ -19,7 +19,7 @@
 <% end %>
 
 <div class="dish_list">
-    <%= render  "dishes/index" %>
+    <%= render  partial: "dishes/index", locals: {dishes: @translation.dishes } %>
 </div>
 
 <h4>Comments:</h4>

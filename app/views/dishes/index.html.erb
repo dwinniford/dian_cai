@@ -3,26 +3,26 @@
 <h3>All Dishes: </h3>
 
 <% @restaurant.dishes.each do |dish| %>
-<h4 lang="zh"> <%= dish.chinese_name %> </h4>
-<p><%= link_to non_chinese_names(dish), dish_path(dish) %></p>
-<p><%= dish.description %></p>
-<p>Ingredients: <%= dish.ingredients %></p>
-<p><%= dish_info(dish) %></p>
+    <h4 lang="zh"> <%= dish.chinese_name %> </h4>
+    <p><%= link_to non_chinese_names(dish), dish_path(dish) %></p>
+    <p><%= dish.description %></p>
+    <p>Ingredients: <%= dish.ingredients %></p>
+    <p><%= dish_info(dish) %></p>
 
-<%= form_with( model: [dish, dish.dish_orders.build] , local: true) do |f| %>
-    <%= f.collection_select(:order_id, current_user.orders, :id, :name)%>
-    <%= f.submit "Add to order" %>
-<% end %>
-
-<%= form_with( model: [@restaurant, @new_order_with_dish_order] , local: true) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.fields_for :dish_orders do |dish_orders_form| %>
-        <%= dish_orders_form.hidden_field(:dish_id, value: dish.id) %>
-        <%= dish_orders_form.hidden_field(:quantity, value: 1) %>
+    <%= form_with( model: [dish, dish.dish_orders.build] , local: true) do |f| %>
+        <%= f.collection_select(:order_id, current_user.orders, :id, :name)%>
+        <%= f.submit "Add to order" %>
     <% end %>
-    <%= f.submit "Add to new order" %>
-<% end %>
+
+    <%= form_with( model: [@restaurant, @new_order_with_dish_order] , local: true) do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+        <%= f.fields_for :dish_orders do |dish_orders_form| %>
+            <%= dish_orders_form.hidden_field(:dish_id, value: dish.id) %>
+            <%= dish_orders_form.hidden_field(:quantity, value: 1) %>
+        <% end %>
+        <%= f.submit "Add to new order" %>
+    <% end %>
 
 
 <% end %>
