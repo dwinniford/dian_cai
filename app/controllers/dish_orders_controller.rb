@@ -2,9 +2,14 @@ class DishOrdersController < ApplicationController
 
     def create 
         dish = Dish.find(params[:dish_id])
-        dish_order = dish.dish_orders.build(dish_order_params)
-        if dish_order.save 
-            @order = dish_order.order 
+        @order = Order.find(params[:dish_order][:order_id])
+        if @order.dishes.include?(dish)
+            dish_order = @order.dish_orders.find_by(dish_id: dish.id)
+        else 
+            dish_order = dish.dish_orders.build(dish_order_params)
+        end
+        dish_order.quantity += 1
+        if dish_order.save  
             redirect_to edit_order_path(@order), notice: "Dish was successfully added to order."
         else 
             flash.alert= "Dish was not added to order." 
