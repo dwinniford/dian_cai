@@ -3,5 +3,9 @@
 <h3>All Dishes: </h3>
 
 <% @restaurant.dishes.each do |dish| %>
-<p> <%= dish.translated_name %> </p>
+<h4 lang="zh"> <%= dish.chinese_name %> </h4>
+<p><%= link_to non_chinese_names(dish), dish_path(dish) %></p>
+<p><%= dish.description %></p>
+<p>Ingredients: <%= dish.ingredients %></p>
+<p><%= dish_info(dish) %></p>
 <% end %>
