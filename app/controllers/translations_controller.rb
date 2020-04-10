@@ -30,9 +30,9 @@ class TranslationsController < ApplicationController
                 if params[:order_by] == "average_rating"
                     @translations = @restaurant.sort_translations_by_rating
                 elsif params[:order_by] == "number_of_dishes"
-
+                    @translations = @restaurant.sort_translations_by_dishes_count
                 elsif params[:order_by] == "created_at"
-
+                    @translations = @restaurant.sort_translations_by_created_at
                 else 
                     @translations = @restaurant.translations
                 end
