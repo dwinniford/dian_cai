@@ -21,6 +21,10 @@ class CommentsController < ApplicationController
     def show 
 
     end
+
+    def index 
+        @user = User.find(params[:user_id])
+    end
         
 
     def edit 

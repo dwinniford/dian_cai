@@ -1,4 +1,4 @@
-<% @translation.comments.each do |c| %>
+<% comments.each do |c| %>
     <div class="comment-content">
         <p> <%= link_to  c.title , comment_path(c) %>, from: <%= c.user.name %>, on: <%= c.created_at.strftime("%m/%d/%Y") %> </p>
         <p> <%= c.content %> </p>
