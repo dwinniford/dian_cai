@@ -5,7 +5,9 @@
 
 <%= link_to  "View All Tranlations", restaurant_translations_path(@restaurant) %>
 
-<h3>Orders: </h3>
+
 <%= render  partial: "orders/index", locals: {orders: @restaurant.most_recent_orders(3)} %>
+
+<%= link_to  "View All Orders", restaurant_orders_path(@restaurant) %>
 
 

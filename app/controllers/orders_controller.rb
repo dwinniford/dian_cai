@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :set_restaurant, only: [:new, :create]
+    before_action :set_restaurant, only: [:new, :create, :index]
     before_action :set_order, only: [:show, :edit, :update, :destroy]
     before_action :user_has_permission?, only: [:edit, :update, :destroy]
 
@@ -19,6 +19,10 @@ class OrdersController < ApplicationController
 
     def show 
        
+    end
+
+    def index 
+
     end
 
     def edit 
