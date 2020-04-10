@@ -1,20 +1,12 @@
-<h1>Welcome <%= @user.name %> </h1>
+<% if @user == current_user %>
 
-<h3>Your Translations: </h3>
-<div class="translations-list">
-    <% @user.translations.each do |t| %>
-        <div class="translation-item">
-            <div class="translation-info">
-                <h4><%= t.title %></h4>
-                <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
-            </div>
-            <% t.dishes.first(3).each do |d| %>
-                <div class="dish-preview">
-                    <h5 lang="zh"><%= d.chinese_name %></h5>
-                    <p><%= d.translated_name %></p>
-               </div>
-            <% end %>
-            <%= link_to  "See all #{t.dishes.count} dishes" , translation_path(t) %>
-        </div>
-    <% end %>
-</div>
+    <h1>Welcome <%= @user.name %> </h1>
+
+<% else%>
+
+<h1>Profile for <%= @user.name %> </h1>
+
+<% end %>
+<%= render partial: "translations/index", locals: {translations: @user.top_rated_translations(3)} %>
+
+<%= render partial: "orders/index", locals: {orders: @user.most_recent_orders(3)} %>
