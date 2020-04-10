@@ -26,7 +26,17 @@ class TranslationsController < ApplicationController
     def index 
         if params[:restaurant_id]
             set_restaurant
-            @translations = @restaurant.translations
+            if params[:order_by]
+                if params[:order_by] == "average_rating"
+                    @translations = @restaurant.sort_translations_by_rating
+                elsif params[:order_by] == "number_of_dishes"
+
+                elsif params[:order_by] == "created_at"
+
+                else 
+                    @translations = @restaurant.translations
+                end
+            end
         else 
             @user= User.find(params[:user_id])
             @translations = @user.translations

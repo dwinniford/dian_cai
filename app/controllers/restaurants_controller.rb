@@ -9,6 +9,10 @@ class RestaurantsController < ApplicationController
             @restaurants = @user.restaurants 
         elsif params[:q_city]
             @restaurants = Restaurant.where("city = ?", params[:q_city])
+        elsif params[:q_cuisine]
+            @restaurants = Cuisine.find(params[:q_cuisine][:id]).restaurants
+        elsif params[:q_language]
+            @restaurants = Language.find(params[:q_language][:id]).restaurants
         else 
             @restaurants = Restaurant.all         
         end

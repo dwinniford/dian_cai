@@ -14,10 +14,16 @@ class Restaurant < ApplicationRecord
     end
 
     def top_rated_translations(n) 
-        self.translations.sort_by { |t| t.average_rating }.reverse.first(n)
+        sort_translations_by_rating.first(n)
     end
 
     def most_recent_orders(n)
         Order.where("restaurant_id = ?", self.id).order(created_at: :desc).first(n)
     end
+
+    def sort_translations_by_rating
+        self.translations.sort_by { |t| t.average_rating }.reverse
+    end
+
+    
 end
