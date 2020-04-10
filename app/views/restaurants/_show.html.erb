@@ -13,7 +13,9 @@
 <nav class="restaurant">
     <%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) if user_has_permission?(@restaurant) %>
     <%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } if user_has_permission?(@restaurant) %>
-    <%= link_to  "View all dishes", restaurant_dishes_path(@restaurant) %>
+    <%= link_to  "Dishes", restaurant_dishes_path(@restaurant) %>
+    <%= link_to  "Translations", restaurant_translations_path(@restaurant) %>
+    <%= link_to  "Orders", restaurant_orders_path(@restaurant) %>
     <%= link_to  "Restaurant Profile", restaurant_path(@restaurant) %>
     <%= link_to  "Add Translation",  new_restaurant_translation_path(@restaurant) %>
     <%= link_to  "Add Order", new_restaurant_order_path(@restaurant) %>
