@@ -1,6 +1,9 @@
 <h1><%= @translation.title %></h1>
-<h3>for: <%= link_to all_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> by: <%= link_to  @translation.user.name, user_path(@translation.user) %></h3>
-<p>Language: <%= @translation.language.name %> </p>
+<h3>for: <span lang="zh"> <%= @translation.restaurant.chinese_name%> </span> 
+    <%= link_to non_chinese_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> 
+    by: <%= link_to  @translation.user.name, user_path(@translation.user) %>
+</h3>
+
 
 <p><%= @translation.notes %> </p>
 <% if user_has_permission?(@translation) %>
@@ -17,7 +20,7 @@
     <%= render  partial: "dishes/index", locals: {dishes: @translation.dishes } %>
 </div>
 
-<h4>Comments:</h4>
+<h3>Comments:</h3>
 <div class="comment-list">
     <%= render  partial: "comments/index", locals: {comments: @translation.comments } %>
 </div>

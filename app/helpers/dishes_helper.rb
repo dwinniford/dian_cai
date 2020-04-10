@@ -5,6 +5,6 @@ module DishesHelper
     end
 
     def dish_info(d) 
-        "Spicy level: #{d.spicy_level} - #{d.price} yuan - #{d.calories} calories"
+        "Spicy level: #{d.spicy_level}/5 - #{d.price} yuan"
     end
 end

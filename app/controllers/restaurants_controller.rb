@@ -7,6 +7,8 @@ class RestaurantsController < ApplicationController
         if params[:user_id]
             @user= User.find(params[:user_id])
             @restaurants = @user.restaurants 
+        elsif params[:q_city]
+            @restaurants = Restaurant.where("city = ?", params[:q_city])
         else 
             @restaurants = Restaurant.all         
         end

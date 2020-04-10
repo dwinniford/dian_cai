@@ -1,6 +1,13 @@
 <%= render  "users/show" if @user %>
 
 <h1>Choose a Restaurant</h1>
+
+<%= form_with(url: "/restaurants", method: "get", local: true) do %>
+<%= label_tag(:q_city, "Search by City") %>
+<%= text_field_tag(:q_city) %>
+<%= submit_tag "Search" %>
+<% end %>
+
 <%= link_to  "Or add a restaurant", new_restaurant_path %>
 <div class="restaurant-list">
     <% @restaurants.each do |r| %>
