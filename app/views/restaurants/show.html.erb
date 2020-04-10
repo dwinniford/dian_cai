@@ -1,22 +1,9 @@
 
 <%= render  "show" %>
 
-<h3>Menu Translations: </h3>
-<div class="translations-list">
-    <% @restaurant.top_rated_translations(3).each do |t| %>
-        <div class="translation-item">
-            <div class="translation-info">
-                <h4> <%= link_to t.title, translation_path(t) %> by <%= link_to t.user.name, user_path(t.user) %></h4>
-                <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
-                <p> <%= t.notes %> </p>
-                <p> <%= t.dishes.count %> dishes </p>
-                <p> <%= t.comments.count %> comments, <%= t.average_rating %>/5 rating</p>
-            </div>
-            <%= render  partial: "dishes/preview_index", locals: {dishes: t.dishes.first(3)} %>
-            
-        </div>
-    <% end %>
-</div>
+<%= render  partial: "translations/index", locals: {translations: @restaurant.top_rated_translations(3) } %>
+
+<%= link_to  "View All Tranlations", restaurant_translations_path(@restaurant) %>
 
 <h3>Orders: </h3>
 <%= render  partial: "orders/index", locals: {orders: @restaurant.most_recent_orders(3)} %>

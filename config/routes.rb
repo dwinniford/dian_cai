@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy'
 
   resources :restaurants do 
-    resources :translations, only: [:new, :create]
-    resources :orders, only: [:new, :create]
+    resources :translations, only: [:new, :create, :index]
+    resources :orders, only: [:new, :create, :index]
     resources :dishes, only: [:index]
   end
 

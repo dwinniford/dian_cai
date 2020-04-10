@@ -1,5 +1,5 @@
 class TranslationsController < ApplicationController
-    before_action :set_restaurant, only: [:new, :create]
+    before_action :set_restaurant, only: [:new, :create, :index]
     before_action :set_translation, only: [:show, :edit, :update, :destroy]
     skip_before_action :check_if_logged_in, only: [:show]
     before_action :user_has_permission?, only: [:edit, :update, :destroy]
@@ -21,6 +21,10 @@ class TranslationsController < ApplicationController
 
     def show 
         @dish = Dish.new
+    end
+
+    def index 
+        
     end
 
     def edit 

@@ -1,0 +1,16 @@
+<h3>Menu Translations: </h3>
+<div class="translations-list">
+    <% translations.each do |t| %>
+        <div class="translation-item">
+            <div class="translation-info">
+                <h4> <%= link_to t.title, translation_path(t) %> by <%= link_to t.user.name, user_path(t.user) %></h4>
+                <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
+                <p> <%= t.notes %> </p>
+                <p> <%= t.dishes.count %> dishes </p>
+                <p> <%= t.comments.count %> comments, <%= t.average_rating %>/5 rating</p>
+            </div>
+            <%= render  partial: "dishes/preview_index", locals: {dishes: t.dishes.first(3)} %>
+            
+        </div>
+    <% end %>
+</div>
