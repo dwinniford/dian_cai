@@ -4,7 +4,12 @@ class RestaurantsController < ApplicationController
     skip_before_action :check_if_logged_in, only: [:show, :index]
 
     def index 
-        @restaurants = Restaurant.all
+        if params[:user_id]
+            @user= User.find(params[:user_id])
+            @restaurants = @user.restaurants 
+        else 
+            @restaurants = Restaurant.all         
+        end
     end
 
     def new 

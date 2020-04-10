@@ -1,7 +1,14 @@
+<%= render  "users/show" if @user %>
+
 <h1>Choose a Restaurant</h1>
 <%= link_to  "Or add a restaurant", new_restaurant_path %>
-<ul>
-<% @restaurants.each do |r| %>
-<li> <%= link_to  "#{r.chinese_name} - #{r.pinyin_name} - #{r.translated_name}", restaurant_path(r) %> <p>Number of menu translations: </p></li>
-<% end %>
-</ul>
+<div class="restaurant-list">
+    <% @restaurants.each do |r| %>
+    <div class="restaurant-item">  
+        <h2 lang="zh"> <%= r.chinese_name%> </h2>
+        <%= link_to  non_chinese_names(r), restaurant_path(r) %> 
+        <p><%= r.full_address %></p>
+        <p>Number of menu translations: <%= r.translations.count %> </p>
+    </div>
+    <% end %>
+</div>

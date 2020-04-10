@@ -19,7 +19,7 @@
 
 <h4>Comments:</h4>
 <div class="comment-list">
-    <%= render  "comments/index" %>
+    <%= render  partial: "comments/index", locals: {comments: @translation.comments } %>
 </div>
 
 <%= link_to "Make a Comment", new_translation_comment_path(@translation) %>
