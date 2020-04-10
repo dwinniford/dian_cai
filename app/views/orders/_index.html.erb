@@ -1,5 +1,5 @@
 <div class="orders-index">
-<% @restaurant.orders.each do |order| %>
+<% orders.each do |order| %>
     <div class="order-item">
         <div class="order-info">
             <h4> <%= link_to  order.name, order_path(order) %> by <%= link_to order.user.name, user_path(order.user) %></h4>

@@ -12,4 +12,12 @@ class Restaurant < ApplicationRecord
     def full_address
         "#{country}, #{province}, #{city}, #{district}, #{street}"
     end
+
+    def top_rated_translations(n) 
+        self.translations.sort_by { |t| t.average_rating }.reverse.first(n)
+    end
+
+    def most_recent_orders(n)
+        Order.where("restaurant_id = ?", self.id).order(created_at: :desc).first(n)
+    end
 end

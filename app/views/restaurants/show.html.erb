@@ -3,7 +3,7 @@
 
 <h3>Menu Translations: </h3>
 <div class="translations-list">
-    <% @restaurant.translations.each do |t| %>
+    <% @restaurant.top_rated_translations(3).each do |t| %>
         <div class="translation-item">
             <div class="translation-info">
                 <h4> <%= link_to t.title, translation_path(t) %> by <%= link_to t.user.name, user_path(t.user) %></h4>
@@ -19,6 +19,6 @@
 </div>
 
 <h3>Orders: </h3>
-<%= render  "orders/index" %>
+<%= render  partial: "orders/index", locals: {orders: @restaurant.most_recent_orders(3)} %>
 
 

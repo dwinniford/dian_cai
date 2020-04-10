@@ -14,5 +14,7 @@ class Translation < ApplicationRecord
         end 
     end
 
+    
+
 
 end
