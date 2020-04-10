@@ -1,0 +1,15 @@
+<% if @user == current_user %>
+
+    <h1>Welcome <%= @user.name %> </h1>
+
+<% else%>
+
+<h1>Profile for <%= @user.name %> </h1>
+<% end %>
+<nav class="user-show">
+<%= link_to  "Translations", user_translations_path(@user) %>
+<%= link_to  "Orders", user_orders_path(@user) %>
+<%= link_to  "Restaurants", user_restaurants_path(@user) if @user == current_user %>
+<%= link_to  "Comments", user_comments_path(@user) if @user == current_user %>
+</nav>
+

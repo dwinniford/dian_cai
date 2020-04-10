@@ -1,5 +1,5 @@
 class TranslationsController < ApplicationController
-    before_action :set_restaurant, only: [:new, :create, :index]
+    before_action :set_restaurant, only: [:new, :create]
     before_action :set_translation, only: [:show, :edit, :update, :destroy]
     skip_before_action :check_if_logged_in, only: [:show]
     before_action :user_has_permission?, only: [:edit, :update, :destroy]
@@ -24,7 +24,13 @@ class TranslationsController < ApplicationController
     end
 
     def index 
-        
+        if params[:restaurant_id]
+            set_restaurant
+            @translations = @restaurant.translations
+        else 
+            @user= User.find(params[:user_id])
+            @translations = @user.translations
+        end
     end
 
     def edit 

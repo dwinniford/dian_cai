@@ -1,3 +1,4 @@
-<%= render  "restaurants/show" %>
+<%= render  "restaurants/show" if @restaurant %>
+<%= render  "users/show" if @user %>
 
-<%= render  partial: "index", locals: {translations: @restaurant.translations} %>
+<%= render  partial: "index", locals: {translations: @translations} %>
