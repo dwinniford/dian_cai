@@ -70,9 +70,9 @@ class OrdersController < ApplicationController
 
     def set_restaurant_orders
         if params[:order_by] == "people"
-            @orders = Order.sort_by_people(@restaurant)
+            @orders = @restaurant.orders.sort_by_people
         elsif params[:order_by] == "created_at"
-            @orders = Order.sort_by_created_at(@restaurant)
+            @orders = @restaurant.orders.sort_by_created_at
         elsif params[:q_diet]
             @orders = Order.search_dietary_restrictions(@restaurant, params[:q_diet])
         elsif params[:q_flavor]

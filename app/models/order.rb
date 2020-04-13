@@ -6,13 +6,11 @@ class Order < ApplicationRecord
     validates :name, presence: true  
     accepts_nested_attributes_for :dish_orders
 
-    def self.sort_by_people(restaurant)
-        Order.where("restaurant_id = ?", restaurant.id ).order(:people)
-    end
+    scope :sort_by_people, -> {order(:people)}
 
-    def self.sort_by_created_at(restaurant)
-        Order.where("restaurant_id = ?", restaurant.id ).order(created_at: :desc)
-    end
+   
+
+    
 
     def self.search_dietary_restrictions(restaurant, kw)
         Order.where("restaurant_id = ? AND dietary_restrictions LIKE ?", restaurant.id, "%#{kw}%" )
