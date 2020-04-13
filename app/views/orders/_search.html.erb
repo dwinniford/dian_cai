@@ -1,10 +1,6 @@
 <h3>Sort Orders By:</h3>
 <%= form_with(url: restaurant_orders_path(@restaurant), method: "get", local: true) do %>
-    <%= label_tag(:order_by_people, "Number of people") %>
-    <%= radio_button_tag(:order_by, "people") %> <br>
-    <%= label_tag(:order_by_date_posted, "Date Posted") %>
-    <%= radio_button_tag(:order_by, "created_at") %> <br>
-    
+    <%= select_tag(:order_by, options_for_select([["Number of people", "people"], ["Date Posted", "created_at"]])) %>
     <%= submit_tag "Sort" %>
 <% end %>
 
