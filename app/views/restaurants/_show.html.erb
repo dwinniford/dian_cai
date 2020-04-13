@@ -8,6 +8,7 @@
 <p><%= c.english_name %></p>
 <% end %>
 <p> Profile created by: <%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
+<%= cl_image_tag @restaurant.menu_image.key, height: 50, width: 50, sign_url: true %>
 
 
 <nav class="restaurant">

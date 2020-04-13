@@ -51,8 +51,9 @@ class RestaurantsController < ApplicationController
     end
 
     private 
+
     def restaurant_params 
-        params.require(:restaurant).permit(:chinese_name, :pinyin_name, :translated_name, :country, :province, :city, :district, :street, cuisine_ids: [])
+        params.require(:restaurant).permit(:chinese_name, :pinyin_name, :translated_name, :country, :province, :city, :district, :street, :menu_image, cuisine_ids: [])
     end
 
     def set_restaurant 
