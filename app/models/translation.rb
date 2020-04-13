@@ -14,7 +14,7 @@ class Translation < ApplicationRecord
         end 
     end
 
+    scope :sort_by_created_at, -> {order(created_at: :desc)}
+
     
-
-
 end
