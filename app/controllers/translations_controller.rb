@@ -24,19 +24,9 @@ class TranslationsController < ApplicationController
     end
 
     def index 
-        # move this logic to set translation method
         if params[:restaurant_id]
             set_restaurant
-            if params[:order_by] == "average_rating"
-                @translations = @restaurant.sort_translations_by_rating
-            elsif params[:order_by] == "number_of_dishes"
-                @translations = @restaurant.sort_translations_by_dishes_count
-            elsif params[:order_by] == "created_at"
-                @translations = @restaurant.sort_translations_by_created_at
-            else 
-                @translations = @restaurant.translations
-                
-            end
+            set_restaurant_translations
         else 
             @user= User.find(params[:user_id])
             @translations = @user.translations
@@ -73,6 +63,19 @@ class TranslationsController < ApplicationController
 
     def set_translation
         @translation = Translation.find(params[:id])
+    end
+
+    def set_restaurant_translations
+        if params[:order_by] == "average_rating"
+            @translations = @restaurant.sort_translations_by_rating
+        elsif params[:order_by] == "number_of_dishes"
+            @translations = @restaurant.sort_translations_by_dishes_count
+        elsif params[:order_by] == "created_at"
+            @translations = @restaurant.sort_translations_by_created_at
+        else 
+            @translations = @restaurant.translations
+            
+        end
     end
 
     def user_has_permission? 
