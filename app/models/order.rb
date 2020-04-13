@@ -15,6 +15,10 @@ class Order < ApplicationRecord
     end
 
     def self.search_dietary_restrictions(restaurant, kw)
-        Order.where("restaurant_id = ? AND dietary_restrictions LIKE ?", restaurant.id, kw )
+        Order.where("restaurant_id = ? AND dietary_restrictions LIKE ?", restaurant.id, "%#{kw}%" )
+    end
+
+    def self.search_flavor_preferences(restaurant, kw)
+        Order.where("restaurant_id = ? AND flavor_preferences LIKE ?", restaurant.id, "%#{kw}%" )
     end
 end
