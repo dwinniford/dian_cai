@@ -1,8 +1,10 @@
 <%= render  "restaurants/show" %>
 
-<h3>All Dishes: </h3>
+<%= render  "search" %>
 
-<% @restaurant.dishes.each do |dish| %>
+<h3>Dishes: </h3>
+
+<% @dishes.each do |dish| %>
     <h4 lang="zh"> <%= dish.chinese_name %> </h4>
     <p><%= link_to non_chinese_names(dish), dish_path(dish) %></p>
     <p><%= dish.description %></p>

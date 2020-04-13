@@ -52,6 +52,7 @@ class DishesController < ApplicationController
         @restaurant = Restaurant.find(params[:restaurant_id])
         @new_order_with_dish_order = Order.new
         @new_order_with_dish_order.dish_orders.build 
+        set_restaurant_dishes
     end
 
     private 
@@ -76,6 +77,18 @@ class DishesController < ApplicationController
             unless current_user == @dish.translation.user 
                 redirect_to dish_path(@dish), alert: "You do not have permission to perform this action."
             end
+        end
+    end
+
+    def set_restaurant_dishes
+        if params[:order_by] == "translation_rating"
+            @dishes = Dish.sort_by_translation_rating(@restaurant)
+        elsif params[:order_by] == "spicy"
+            @dishes = Dish.sort_by_spicy(@restaurant)
+        elsif params[:order_by] == "created_at"
+            @dishes = Dish.sort_by_created_at(@restaurant)
+        else 
+            @dishes = @restaurant.dishes
         end
     end
 end

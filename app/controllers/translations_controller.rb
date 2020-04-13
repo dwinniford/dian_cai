@@ -74,7 +74,6 @@ class TranslationsController < ApplicationController
             @translations = @restaurant.sort_translations_by_created_at
         else 
             @translations = @restaurant.translations
-            
         end
     end
 
