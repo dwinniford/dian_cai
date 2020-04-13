@@ -1,11 +1,7 @@
 <h3>Sort Translations By:</h3>
 <%= form_with(url: restaurant_translations_path(@restaurant), method: "get", local: true) do %>
-    <%= label_tag(:order_by_average_rating, "Rating") %>
-    <%= radio_button_tag(:order_by, "average_rating") %> <br>
-    <%= label_tag(:order_by_number_of_dishes, "Number of Dishes") %>
-    <%= radio_button_tag(:order_by, "number_of_dishes") %> <br>
-    <%= label_tag(:order_by_date_posted, "Date Posted") %>
-    <%= radio_button_tag(:order_by, "created_at") %> <br>
+    
+    <%= select_tag(:order_by, options_for_select([["Rating", "average_rating"], ["Number of Dishes", "number_of_dishes"], ["Date Posted", "created_at"]])) %>
     
     <%= submit_tag "Sort" %>
 <% end %>
