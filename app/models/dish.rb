@@ -12,5 +12,9 @@ class Dish < ApplicationRecord
     def self.sort_by_translation_rating(restaurant)
         Dish.where("restaurant_id = ?", restaurant.id ).sort_by { |d| d.translation.average_rating }.reverse
     end
+
+    def self.sort_by_created_at(restaurant)
+        Dish.where("restaurant_id = ?", restaurant.id ).order(created_at: :desc)
+    end 
 end
 
