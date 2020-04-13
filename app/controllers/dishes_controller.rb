@@ -87,6 +87,9 @@ class DishesController < ApplicationController
             @dishes = Dish.sort_by_spicy(@restaurant)
         elsif params[:order_by] == "created_at"
             @dishes = Dish.sort_by_created_at(@restaurant)
+        elsif params[:q]
+            @dishes = Dish.where("restaurant_id = ? AND ingredients LIKE ?", @restaurant.id, "%#{params[:q]}%")
+
         else 
             @dishes = @restaurant.dishes
         end
