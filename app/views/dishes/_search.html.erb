@@ -1,11 +1,7 @@
-<h3>Sort Dishes By:</h3>
+
 <%= form_with(url: restaurant_dishes_path(@restaurant), method: "get", local: true) do %>
-    <%= label_tag(:order_by_translation_rating, "Translation Rating") %>
-    <%= radio_button_tag(:order_by, "translation_rating") %> <br>
-    <%= label_tag(:order_by_spicy, "Spicy") %>
-    <%= radio_button_tag(:order_by, "spicy") %> <br>
-    <%= label_tag(:order_by_date_posted, "Date Posted") %>
-    <%= radio_button_tag(:order_by, "created_at") %> <br>
+    <%= label_tag(:order_by, "Sort by") %>
+    <%= select_tag(:order_by, options_for_select([["Translation Rating", "translation_rating"], ["Spicy Level", "spicy"], ["Date Posted", "created_at"]])) %>
     
     <%= submit_tag "Sort" %>
 <% end %>
