@@ -71,7 +71,7 @@ class TranslationsController < ApplicationController
         elsif params[:order_by] == "number_of_dishes"
             @translations = @restaurant.sort_translations_by_dishes_count
         elsif params[:order_by] == "created_at"
-            @translations = @restaurant.sort_translations_by_created_at
+            @translations = @restaurant.translations.sort_by_created_at
         else 
             @translations = @restaurant.translations
         end

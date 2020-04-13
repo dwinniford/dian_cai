@@ -29,9 +29,7 @@ class Restaurant < ApplicationRecord
         self.translations.sort_by { |t| t.dishes.count }.reverse
     end
 
-    def sort_translations_by_created_at
-        Translation.where("restaurant_id = ?", self.id).order(created_at: :desc)
-    end
+   
 
 
 end
