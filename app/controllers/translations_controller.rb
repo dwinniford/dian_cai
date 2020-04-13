@@ -24,18 +24,18 @@ class TranslationsController < ApplicationController
     end
 
     def index 
+        # move this logic to set translation method
         if params[:restaurant_id]
             set_restaurant
-            if params[:order_by]
-                if params[:order_by] == "average_rating"
-                    @translations = @restaurant.sort_translations_by_rating
-                elsif params[:order_by] == "number_of_dishes"
-                    @translations = @restaurant.sort_translations_by_dishes_count
-                elsif params[:order_by] == "created_at"
-                    @translations = @restaurant.sort_translations_by_created_at
-                else 
-                    @translations = @restaurant.translations
-                end
+            if params[:order_by] == "average_rating"
+                @translations = @restaurant.sort_translations_by_rating
+            elsif params[:order_by] == "number_of_dishes"
+                @translations = @restaurant.sort_translations_by_dishes_count
+            elsif params[:order_by] == "created_at"
+                @translations = @restaurant.sort_translations_by_created_at
+            else 
+                @translations = @restaurant.translations
+                
             end
         else 
             @user= User.find(params[:user_id])
