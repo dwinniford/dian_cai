@@ -2,4 +2,6 @@
 
 <%= render  "users/show" if @user %>
 
+<%= render  "search" if @restaurant %>
+
 <%= render  partial: "index", locals: {orders: @orders } %>

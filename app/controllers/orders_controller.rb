@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     def index 
         if params[:restaurant_id]
             set_restaurant
-            @orders = @restaurant.orders
+            set_restaurant_orders
         else 
             @user= User.find(params[:user_id])
             @orders = @user.orders
@@ -65,6 +65,20 @@ class OrdersController < ApplicationController
     def user_has_permission? 
         unless current_user == @order.user 
             redirect_to order_path(@order), alert: "You do not have permission to perform this action."
+        end
+    end
+
+    def set_restaurant_orders
+        if params[:order_by] == "people"
+            @orders = Order.sort_by_people(@restaurant)
+        elsif params[:order_by] == "created_at"
+            @orders = Order.sort_by_created_at(@restaurant)
+        elsif params[:q_diet]
+            @orders = Order.search_dietary_restrictions(@restaurant, params[:q_diet])
+        elsif params[:q_flavor]
+            @orders = Order.search_flavor_preferences(@restaurant, params[:q_flavor])
+        else 
+            @orders = @restaurant.orders
         end
     end
 end

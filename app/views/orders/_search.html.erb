@@ -1,0 +1,21 @@
+<h3>Sort Orders By:</h3>
+<%= form_with(url: restaurant_orders_path(@restaurant), method: "get", local: true) do %>
+    <%= label_tag(:order_by_people, "Number of people") %>
+    <%= radio_button_tag(:order_by, "people") %> <br>
+    <%= label_tag(:order_by_date_posted, "Date Posted") %>
+    <%= radio_button_tag(:order_by, "created_at") %> <br>
+    
+    <%= submit_tag "Sort" %>
+<% end %>
+
+<%= form_with(url: restaurant_orders_path(@restaurant), method: "get", local: true) do %>
+<%= label_tag :q_diet, "Search by dietary restriction" %>
+<%= text_field_tag (:q_diet) %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<%= form_with(url: restaurant_orders_path(@restaurant), method: "get", local: true) do %>
+<%= label_tag :q_flavor, "Search by flavor preference" %>
+<%= text_field_tag (:q_flavor) %>
+<%= submit_tag "Search" %>
+<% end %>
