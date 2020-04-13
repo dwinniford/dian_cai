@@ -8,9 +8,6 @@ class Order < ApplicationRecord
 
     scope :sort_by_people, -> {order(:people)}
 
-   
-
-    
 
     def self.search_dietary_restrictions(restaurant, kw)
         Order.where("restaurant_id = ? AND dietary_restrictions LIKE ?", restaurant.id, "%#{kw}%" )

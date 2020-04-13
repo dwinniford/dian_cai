@@ -84,9 +84,9 @@ class DishesController < ApplicationController
         if params[:order_by] == "translation_rating"
             @dishes = Dish.sort_by_translation_rating(@restaurant)
         elsif params[:order_by] == "spicy"
-            @dishes = Dish.sort_by_spicy(@restaurant)
+            @dishes = @restaurant.dishes.sort_by_spicy
         elsif params[:order_by] == "created_at"
-            @dishes = Dish.sort_by_created_at(@restaurant)
+            @dishes = @restaurant.dishes.sort_by_created_at
         elsif params[:q]
             @dishes = Dish.where("restaurant_id = ? AND ingredients LIKE ?", @restaurant.id, "%#{params[:q]}%")
 
