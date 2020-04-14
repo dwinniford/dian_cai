@@ -1,4 +1,32 @@
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var input = document.getElementById('input'),
+                text = document.getElementById('text'),
+                player = document.getElementById('player'),
+                submit = document.getElementById('submit');
+                
+            input.addEventListener('submit', function (event) {
+            
+                player.src = '/read?text=' + encodeURIComponent(text.value);
+                player.play();
+            
+                event.preventDefault();
+            });
+        });
+    </script>
+</head>
+
 <h1 lang="zh"><%= @restaurant.chinese_name %> </h1>
+
+<form id="input" method="GET" action="/read">
+        
+        <div>
+            <textarea id="text" maxlength="1000" minlength="1" name="text"><%= @restaurant.chinese_name %></textarea>
+        </div>
+        <input type="submit" value="Read" id="submit" />
+</form>
+<audio id="player"></audio>
 
 <h2><%= non_chinese_names(@restaurant) %> </h2>
 
