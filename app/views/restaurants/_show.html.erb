@@ -1,5 +1,10 @@
 <h1 lang="zh"><%= @restaurant.chinese_name %> </h1>
+
 <h2><%= non_chinese_names(@restaurant) %> </h2>
+
+<%= cl_image_tag @restaurant.restaurant_image.key, width: 450, sign_url: true if @restaurant.restaurant_image.attached? %>
+<%= cl_image_tag @restaurant.menu_image.key, width: 450, sign_url: true if @restaurant.menu_image.attached? %>
+
 
 <p>Address: <%= @restaurant.full_address %> </p>
 
@@ -8,7 +13,7 @@
 <p><%= c.english_name %></p>
 <% end %>
 <p> Profile created by: <%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
-<%= cl_image_tag @restaurant.menu_image.key, height: 50, width: 50, sign_url: true %>
+
 
 
 <nav class="restaurant">

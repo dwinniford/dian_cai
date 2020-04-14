@@ -6,6 +6,7 @@ class Restaurant < ApplicationRecord
     belongs_to :user 
     has_many :orders 
     has_one_attached :menu_image
+    has_one_attached :restaurant_image
     
     validates :chinese_name, :translated_name, :country, :province, :city, :district, :street, presence: true 
    

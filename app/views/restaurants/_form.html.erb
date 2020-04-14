@@ -34,7 +34,11 @@
     <%= f.text_field :district %> <br>
     <%= f.label :street %>
     <%= f.text_field :street %> <br>
+    <%= f.label :menu_image, "Add a picture of the menu" %> <br>
     <%= f.file_field :menu_image %>
+    <br>
+    <%= f.label :restaurant_image, "Add a picture of the restaurant front door/sign to help people find it"%> <br>
+    <%= f.file_field :restaurant_image %>
     <br>
     <%= f.submit %>
 <% end %>
