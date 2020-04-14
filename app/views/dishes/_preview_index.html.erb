@@ -3,5 +3,6 @@
             <h4 lang="zh"><%= dish.chinese_name %></h4>
             <p><%= link_to non_chinese_names(dish), dish_path(dish) %></p>
             <p> <%= dish.description %> </p>
+            <%= cl_image_tag dish.image.key, width: 50 if dish.image.attached? %>
     </div>
 <% end %>

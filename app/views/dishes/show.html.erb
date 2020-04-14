@@ -1,6 +1,7 @@
-<h1><%= all_names(@dish) %></h1>
+<h1><span lang="zh"> <%= @dish.chinese_name %> </span><%= non_chinese_names(@dish) %></h1>
+
 <%= cl_image_tag @dish.image.key, width: 450 if @dish.image.attached? %>
-<h3>at: <%= link_to all_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> 
+<h3>at: <span lang="zh"> <%= @dish.restaurant.chinese_name %> </span><%= link_to non_chinese_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> 
 by: <%= link_to  @dish.translation.user.name, user_path(@dish.translation.user) %> </h3>
 <p>Description: <%= @dish.description %></p>
 <p>Ingredients: <%= @dish.ingredients %></p>
