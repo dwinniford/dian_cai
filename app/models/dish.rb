@@ -4,6 +4,7 @@ class Dish < ApplicationRecord
     has_many :dish_orders 
     has_many :orders, through: :dish_orders 
     validates :chinese_name, :translated_name, presence: true 
+    has_one_attached :image
 
     scope :sort_by_spicy, -> {order(:spicy_level)}
 

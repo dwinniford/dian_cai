@@ -4,6 +4,7 @@
 <% dishes.each do |d| %>
 
 <h3><span lang="zh"> <%= d.chinese_name %> </span><%= link_to non_chinese_names(d), dish_path(d) %></h3>
+<%= cl_image_tag d.image.key, width: 450 if d.image.attached? %>
 <p><%= d.description %></p>
 <p>Ingredients: <%= d.ingredients %></p>
 <p><%= dish_info(d) %></p>

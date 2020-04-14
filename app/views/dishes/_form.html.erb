@@ -15,7 +15,8 @@
     <%= f.number_field(:spicy_level, in: 1.0..5.0, step: 0.5) %> <br>
     <%= f.label :price %>
     <%= f.number_field(:price, in: 1..300, step: 1) %> <br>
-    <%= f.label :calories %>
-    <%= number_field(:calories, in: 1..2000, step: 10) %> <br>
+    <%= f.label :image, "Add a picture"%> <br>
+    <%= f.file_field :image %>
+    <br>
     <%= f.submit %>
 <% end %>
