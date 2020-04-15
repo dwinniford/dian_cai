@@ -57,3 +57,18 @@
     // not working
     grid-column: 1 / -1;
   }
+
+  .image-name {
+    position: relative;
+  }
+  
+  /* Bottom right text */
+  h2.name {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding-left: 20px;
+    padding-right: 20px;
+  }

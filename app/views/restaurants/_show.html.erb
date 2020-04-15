@@ -29,11 +29,10 @@
         <input type="submit" value="Read" id="submit" />
 </form>
 <audio id="player"></audio>
-
-<h2><%= non_chinese_names(@restaurant) %> </h2>
-
-<%= cl_image_tag @restaurant.restaurant_image.key, width: 450, sign_url: true if @restaurant.restaurant_image.attached? %>
-
+<div class="image-name">
+    <%= cl_image_tag @restaurant.restaurant_image.key, width: 450, sign_url: true if @restaurant.restaurant_image.attached? %>
+    <h2 class="name"><%= non_chinese_names(@restaurant) %> </h2>
+</div>
 
 
 <p>Address: <%= @restaurant.full_address %> </p>
