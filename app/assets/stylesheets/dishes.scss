@@ -5,7 +5,7 @@
 .dish-preview {
     padding: 20px;
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     grid-gap: 10px;
     align-content: center;
 }

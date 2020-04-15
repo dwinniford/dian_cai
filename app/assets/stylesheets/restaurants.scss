@@ -20,7 +20,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
-    grid-template-columns: 1fr 8fr 1fr;
+    grid-template-columns: 1fr minmax(350px, 8fr) 1fr;
   }
 
   main {
@@ -33,13 +33,26 @@
   }
 
   div.translation-item, div.order-item {
-    
     display: grid;
-    
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    
   }
 
   div.order-info {
     grid-row: span 2;
+  }
+
+  .restaurant-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .restaurant-item {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .restaurant-index-options {
+    align-self: center;
+    // not working
+    grid-column: 1 / -1;
   }
