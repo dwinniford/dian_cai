@@ -22,7 +22,8 @@
     display: grid;
     grid-template-columns: 1fr minmax(350px, 8fr) 1fr;
   }
-
+ 
+ 
   main {
     grid-column: 2;
     width: 100%;
