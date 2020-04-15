@@ -35,13 +35,13 @@ div.alert {
   font-weight: bold;
 }
 .logo {
-  width: 150px;
+  width: 200px;
   
 }
 nav {
-  grid-column: span 3;
   display: grid; 
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
   
 }
 

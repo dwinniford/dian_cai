@@ -13,6 +13,12 @@
 
   body {
     font-family: aleoLight;
+    background-image: url(dimsum_table.jpg);
+    // height: 1000px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: grid;
     grid-template-columns: 1fr 8fr 1fr;
   }
@@ -21,10 +27,13 @@
     grid-column: 2;
     width: 100%;
     justify-content: center;
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px
   }
 
   div.translation-item, div.order-item {
-    border: solid;
+    
     display: grid;
     
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
