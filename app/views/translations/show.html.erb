@@ -1,3 +1,5 @@
+
+<%= cl_image_tag @translation.menu.key, width: 450, sign_url: true if @translation.menu.attached? %>
 <h1><%= @translation.title %></h1>
 <h3>for: <span lang="zh"> <%= @translation.restaurant.chinese_name%> </span> 
     <%= link_to non_chinese_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> 

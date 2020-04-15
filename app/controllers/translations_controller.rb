@@ -58,7 +58,7 @@ class TranslationsController < ApplicationController
     end
 
     def translation_params 
-        params.require(:translation).permit(:title, :notes, :language_id)
+        params.require(:translation).permit(:title, :notes, :menu, :language_id)
     end
 
     def set_translation

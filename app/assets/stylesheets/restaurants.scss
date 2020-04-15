@@ -53,7 +53,7 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
   .restaurant-index-options {
-    align-self: center;
+    text-align: center;
     // not working
     grid-column: 1 / -1;
   }

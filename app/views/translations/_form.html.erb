@@ -1,20 +1,22 @@
 <%= form_with(model: [@restaurant, @translation] , local: true) do |f| %>
 
-<% if @translation.errors.any? %>
-    <div id="error_explanation">
-       <ul>
-            <% @translation.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-        </ul>
-    </div>
+    <% if @translation.errors.any? %>
+        <div id="error_explanation">
+            <ul>
+                <% @translation.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
 
-<% end %>
-<%= f.label :language_id %>
-<%= f.collection_select(:language_id, Language.all, :id, :name) %> <br>
-<%= f.label :title %>
-<%= f.text_field :title %> <br>
-<%= f.label :notes %>
-<%= f.text_field :notes %> <br>
-<%= f.submit %>
+    <% end %>
+    <%= f.label :language_id %>
+    <%= f.collection_select(:language_id, Language.all, :id, :name) %> <br>
+    <%= f.label :title %>
+    <%= f.text_field :title %> <br>
+    <%= f.label :notes %>
+    <%= f.text_field :notes %> <br>
+    <%= f.label :menu, "Add a picture of the menu" %> <br>
+    <%= f.file_field :menu %> <br>
+    <%= f.submit %>
 <% end %>
