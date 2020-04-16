@@ -4,18 +4,7 @@ class RestaurantsController < ApplicationController
     skip_before_action :check_if_logged_in, only: [:show, :index]
 
     def index 
-        if params[:user_id]
-            @user= User.find(params[:user_id])
-            @restaurants = @user.restaurants 
-        elsif params[:q_city]
-            @restaurants = Restaurant.where("city = ?", params[:q_city])
-        elsif params[:q_cuisine]
-            @restaurants = Cuisine.find(params[:q_cuisine][:id]).restaurants
-        elsif params[:q_language]
-            @restaurants = Language.find(params[:q_language][:id]).restaurants
-        else 
-            @restaurants = Restaurant.all         
-        end
+        set_restaurants
     end
 
     def new 
@@ -63,6 +52,21 @@ class RestaurantsController < ApplicationController
     def user_has_permission? 
         unless current_user == @restaurant.user 
             redirect_to restaurant_path(@restaurant), alert: "You do not have permission to perform this action."
+        end
+    end
+
+    def set_restaurants 
+        if params[:user_id]
+            @user= User.find(params[:user_id])
+            @restaurants = @user.restaurants 
+        elsif params[:q_city]
+            @restaurants = Restaurant.where("city = ?", params[:q_city])
+        elsif params[:q_cuisine]
+            @restaurants = Cuisine.find(params[:q_cuisine][:id]).restaurants
+        elsif params[:q_language]
+            @restaurants = Language.find(params[:q_language][:id]).restaurants
+        else 
+            @restaurants = Restaurant.all         
         end
     end
 end
