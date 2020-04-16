@@ -36,7 +36,7 @@
     </div>
 
     <div class="description">
-        <p>Address: <%= @restaurant.full_address %> </p>
+        <p>Address: <%= full_address(@restaurant) %> </p>
 
         <h4>Cuisine:</h4>
         <% @restaurant.cuisines.each do |c| %>

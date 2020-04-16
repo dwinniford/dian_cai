@@ -12,6 +12,7 @@ class TranslationsController < ApplicationController
     def create 
         @translation = @restaurant.translations.build(translation_params)
         @translation.user = current_user 
+        # create a Restaurant instance method :build_translation_with_user(params, user) ???
         if @translation.save 
             redirect_to translation_path(@translation), notice: "Translation was successfully created."
         else 

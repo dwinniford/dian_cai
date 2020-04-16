@@ -10,9 +10,7 @@ class Restaurant < ApplicationRecord
     validates :chinese_name, :translated_name, :country, :province, :city, :district, :street, presence: true 
    
 
-    def full_address
-        "#{country}, #{province}, #{city}, #{district}, #{street}"
-    end
+    
 
     def top_rated_translations(n) 
         sort_translations_by_rating.first(n)

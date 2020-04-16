@@ -19,7 +19,7 @@
             <h2 lang="zh"> <%= r.chinese_name%> </h2>
             <%= link_to  non_chinese_names(r), restaurant_path(r) %> 
             <br>
-            <p><%= r.full_address %></p>
+            <p><%= full_address(r) %></p>
             <p>Number of menu translations: <%= r.translations.count %> </p>
         </div>
     </div>
