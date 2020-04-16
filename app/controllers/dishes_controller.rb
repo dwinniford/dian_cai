@@ -11,19 +11,14 @@ class DishesController < ApplicationController
 
     def create 
         @dish = @translation.dishes.build(dish_params)
-    
-
         respond_to do |format|
-     
             if @dish.save
                 format.html { redirect_to translation_path(@dish.translation), notice: "Dish was successfully created." }
                 format.js
             else 
                 format.html { render :new } 
-                
             end
         end
-        
     end
 
     def show 
