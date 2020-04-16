@@ -64,24 +64,24 @@ nav a {
   font-size: 20px;  
 }
 
-div.user-links {
+/* div.user-links {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
 }
 #avatar {
   grid-column: span 1 / -1;
-  text-align: right;
-}
-div.user-links>div.link1 {
-  grid-column: span 3 / -1;
-  text-align: right;
-}
+  /* text-align: right; */
+/* } */
+/* div.user-links>div.link1 { */
+  /* grid-column: span 3 / -1; */
+  /* text-align: right; 
+} */
 
-div.user-links>div.link2 {
+/* div.user-links>div.link2 {
   grid-column: span 3 / -1;
-  text-align: right;
-}
+  text-align: right; 
+ } */ 
 
 :lang(zh) {
   font-family: maShanZheng-regular;
