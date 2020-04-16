@@ -75,15 +75,15 @@
 
   .image-name {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 450px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
 
   .image-name img {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
-    width: 100%;
-    object-fit: cover;
+
   }
 
   .name-overlay {
