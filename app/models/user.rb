@@ -8,8 +8,6 @@ class User < ApplicationRecord
     validates :name, uniqueness: true 
     validates :email, presence: true 
     validates :email, uniqueness: true 
-    # validates :password, confirmation: true 
-    # validates :password_confirmation, presence: true
     
     def top_rated_translations(n) 
         self.translations.sort_by { |t| t.average_rating }.reverse.first(n)
