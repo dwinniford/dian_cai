@@ -73,6 +73,17 @@
   //   padding-right: 20px;
   // }
 
+  .top-content {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 450px));
+    // grid-template-columns: 450px;
+    // grid-auto-flow: column;
+    // grid-auto-columns: minmax(200px, 1fr);
+    grid-gap: 20px;
+    
+  }
+
   .image-name {
     display: grid;
     width: 450px;
