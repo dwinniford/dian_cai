@@ -10,11 +10,11 @@ class PollyController < ApplicationController
             voice_id: "Zhiyu",
         })
         # return resp.audio_stream
-        response.headers['Content-Type'] = "mp3"
-        response.stream.write resp.audio_stream
-        response.stream.close
-        # f = IO.copy_stream(resp.audio_stream, "#{params[:text]}.mp3") # successfully creates audio file in app folder
-        # send_file "#{params[:text]}.mp3"
+        # response.headers['Content-Type'] = "mp3"
+        # response.stream.write resp.audio_stream
+        # response.stream.close
+        IO.copy_stream(resp.audio_stream, "#{params[:text]}.mp3") # successfully creates audio file in app folder
+        send_file "#{params[:text]}.mp3"
         # send_data resp.audio_stream, type: "mp3"
     end
 end

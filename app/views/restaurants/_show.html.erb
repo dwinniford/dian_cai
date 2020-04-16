@@ -19,19 +19,19 @@
     </script>
 </head>
 
-<h1 lang="zh"><%= @restaurant.chinese_name %> </h1>
 
-<form id="input" method="GET" action="/read">
-        
-        <div>
-            <textarea id="text" maxlength="1000" minlength="1" name="text"><%= @restaurant.chinese_name %></textarea>
-        </div>
-        <input type="submit" value="Read" id="submit" />
-</form>
 <audio id="player"></audio>
 <div class="image-name">
     <%= cl_image_tag @restaurant.restaurant_image.key, width: 450, sign_url: true if @restaurant.restaurant_image.attached? %>
-    <h2 class="name"><%= non_chinese_names(@restaurant) %> </h2>
+    
+    <div class="name-overlay">
+        <h1 lang="zh"><%= @restaurant.chinese_name %> </h1>
+        <form id="input" method="GET" action="/read">
+            <%= hidden_field_tag(:text, @restaurant.chinese_name) %>
+            <input type="submit" value="Listen" id="submit" />
+        </form>
+        <h2 class="name"><%= non_chinese_names(@restaurant) %> </h2>
+    </div>
 </div>
 
 
