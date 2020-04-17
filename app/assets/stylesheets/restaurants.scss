@@ -43,16 +43,16 @@
     grid-row: span 2;
   }
 
-  .restaurant-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+  // .restaurant-list {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  // }
 
-  .restaurant-item {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
+  // .restaurant-item {
+  //   padding: 10px;
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  // }
   .restaurant-index-options {
     text-align: center;
     // not working
@@ -110,4 +110,16 @@
     align-items: top;
     padding: 10px;
     margin: 20px;
+  }
+
+  .index-content {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
+    grid-template-columns: repeat(auto-fit, 300px);
+    // grid-template-columns: 450px;
+    // grid-auto-flow: column;
+    // grid-auto-columns: minmax(200px, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    
   }
