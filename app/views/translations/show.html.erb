@@ -26,13 +26,15 @@
 
 
 
-<div class="dish_list">
+<div class="dish-list">
+    <h1>Dishes</h1>
     <%= render  partial: "dishes/index", locals: {dishes: @translation.dishes } %>
 </div>
 
-<h3>Comments:</h3>
+
 <div class="comment-list">
+    <h1>Comments:</h1>
     <%= render  partial: "comments/index", locals: {comments: @translation.comments } %>
+    <%= link_to "Make a Comment", new_translation_comment_path(@translation) %>
 </div>
 
-<%= link_to "Make a Comment", new_translation_comment_path(@translation) %>
