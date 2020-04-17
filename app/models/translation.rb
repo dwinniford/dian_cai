@@ -8,8 +8,8 @@ class Translation < ApplicationRecord
     has_one_attached :menu 
 
     def average_rating 
-        if self.comments.count > 0
-            self.comments.map { |c| c.rating }.sum/self.comments.count
+        if self.comments.size > 0
+            self.comments.map { |c| c.rating }.sum/self.comments.size
         else 
             0
         end 

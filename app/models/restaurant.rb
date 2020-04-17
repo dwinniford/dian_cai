@@ -25,7 +25,7 @@ class Restaurant < ApplicationRecord
     end
 
     def sort_translations_by_dishes_count
-        self.translations.sort_by { |t| t.dishes.count }.reverse
+        self.translations.sort_by { |t| t.dishes.size }.reverse
     end
 
    
