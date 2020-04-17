@@ -1,15 +1,27 @@
-<h1><span lang="zh"> <%= @dish.chinese_name %> </span><%= non_chinese_names(@dish) %></h1>
+<div class="top-content">
+    <div class="image-name">
+        <%= cl_image_tag @dish.image.key, width: 450 if @dish.image.attached? %>
+        <div class="name-overlay">
+            <h1><span lang="zh"> <%= @dish.chinese_name %> </span><%= non_chinese_names(@dish) %></h1>
+        </div>
+    </div>
 
-<%= cl_image_tag @dish.image.key, width: 450 if @dish.image.attached? %>
-<h3>at: <span lang="zh"> <%= @dish.restaurant.chinese_name %> </span><%= link_to non_chinese_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> 
-by: <%= link_to  @dish.translation.user.name, user_path(@dish.translation.user) %> </h3>
-<p>Description: <%= @dish.description %></p>
-<p>Ingredients: <%= @dish.ingredients %></p>
-<p>Spicy level(1-5): <%= @dish.spicy_level %></p>
-<p>Price: <%= @dish.price %> yuan</p>
-<p>Calories: <%= @dish.calories %></p>
-<% if user_has_permission?(@dish.translation) %>
-    <%= link_to  "Edit", edit_dish_path(@dish) %>
-    <%= link_to  "Delete", dish_path(@dish), method: "delete" %>
-<% end %>
+    <div class="description">
+        <h3>at: <span lang="zh"> <%= @dish.restaurant.chinese_name %> </span><%= link_to non_chinese_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> 
+        by: <%= link_to  @dish.translation.user.name, user_path(@dish.translation.user) %> </h3>
+        <p>Description: <%= @dish.description %></p>
+        <p>Ingredients: <%= @dish.ingredients %></p>
+        <p>Spicy level(1-5): <%= @dish.spicy_level %></p>
+        <p>Price: <%= @dish.price %> yuan</p>
+        <% if user_has_permission?(@dish.translation) %>
+            <%= link_to  "Edit", edit_dish_path(@dish) %>
+            <%= link_to  "Delete", dish_path(@dish), method: "delete" %>
+        <% end %>
+    </div>
+
+</div>
+
+
+
+
 
