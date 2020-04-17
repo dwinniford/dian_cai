@@ -1,4 +1,4 @@
-<h1>Edit <%= link_to  all_names(@dish), dish_path(@dish) %></h1>
-<h3>at: <%= link_to all_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> by: User Name </h3>
+<h1>Edit <span lang="zh"><%= @dish.chinese_name%></span><%= link_to  non_chinese_names(@dish), dish_path(@dish) %></h1>
+<h3>at: <span lang="zh"><%= @dish.restaurant.chinese_name %></span> <%= link_to non_chinese_names(@dish.restaurant), restaurant_path(@dish.restaurant) %> on: <%= link_to  @dish.translation.title, translation_path(@dish.translation) %> </h3>
 
 <%= render  "form" %>
