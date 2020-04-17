@@ -1,5 +1,5 @@
-<h1 lang="zh"><%= @order.restaurant.chinese_name %></h1>
-<h3><%= @order.name %> at <%= link_to  non_chinese_names(@order.restaurant), restaurant_path(@order.restaurant) %></h3>
+
+<h1><%= @order.name %> at <span lang="zh"><%= @order.restaurant.chinese_name %></span> <%= link_to  non_chinese_names(@order.restaurant), restaurant_path(@order.restaurant) %></h1>
 <p>by: <%= link_to  @order.user.name, user_path(@order.user) %></p>
 <p>Number of people: <%= @order.people %></p>
 <p>Dietary Restrictions: <%= @order.dietary_restrictions %></p>
@@ -13,12 +13,8 @@
     </nav>
 <% end %>
 
-<% @order.dishes.each do |d| %>
-    <h3 lang="zh"> <%= d.chinese_name %> </h3>
-    <p> <%= non_chinese_names(d) %></p>
-    <p>Description: <%= d.description %></p>
-    <p>Ingredients: <%= d.ingredients %></p>
-    <p>Spicy level(1-5): <%= d.spicy_level %> -- Price: <%= d.price %> yuan</p>
-<% end %>
+<%= render  partial: "dishes/index", locals: {dishes: @order.dishes } %>
+
+
 
 
