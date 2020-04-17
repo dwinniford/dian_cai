@@ -1,13 +1,20 @@
 
-<%= cl_image_tag @translation.menu.key, width: 450, sign_url: true if @translation.menu.attached? %>
-<h1><%= @translation.title %></h1>
-<h3>for: <span lang="zh"> <%= @translation.restaurant.chinese_name%> </span> 
-    <%= link_to non_chinese_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> 
-    by: <%= link_to  @translation.user.name, user_path(@translation.user) %>
-</h3>
+<div class="top-content">
+    <div >
+        <%= cl_image_tag @translation.menu.key, width: 450, sign_url: true if @translation.menu.attached? %>
+    </div>
+
+    <div class="description">
+        <h1><%= @translation.title %></h1>
+        <h3>for: <span lang="zh"> <%= @translation.restaurant.chinese_name%> </span> 
+            <%= link_to non_chinese_names(@translation.restaurant), restaurant_path(@translation.restaurant) %> 
+            by: <%= link_to  @translation.user.name, user_path(@translation.user) %>
+        </h3>
+        <p><%= @translation.notes %> </p>
+    </div>
+</div>
 
 
-<p><%= @translation.notes %> </p>
 <% if user_has_permission?(@translation) %>
     <nav id="translation">
         <%= link_to  "Edit", edit_translation_path(@translation) %>
