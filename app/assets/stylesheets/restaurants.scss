@@ -38,6 +38,9 @@
   div.translation-item, div.order-item {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px; 
   }
 
   div.order-info {

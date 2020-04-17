@@ -38,7 +38,7 @@
     <div class="description">
         <p>Address: <%= full_address(@restaurant) %> </p>
 
-        <h4>Cuisine: <%= restaurant_cuisines(@restaurant) %> </h4>
+        <p>Cuisine: <%= restaurant_cuisines(@restaurant) %> </p>
         
         <p> Profile created by: <%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
         <nav class="restaurant">
