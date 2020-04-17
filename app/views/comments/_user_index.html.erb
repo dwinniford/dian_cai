@@ -1,9 +1,9 @@
 <% comments.each do |c| %>
     <div class="comment-content">
+        <h3> <%= link_to  c.title , comment_path(c) %>, posted on: <%= c.created_at.strftime("%m/%d/%Y") %> </h3>
         <p> Commented on: <%=link_to c.translation.title, translation_path(c.translation) %> 
             at: <%= link_to non_chinese_names(c.translation.restaurant), restaurant_path(c.translation.restaurant) %> 
         </p>
-        <p> <%= link_to  c.title , comment_path(c) %>, posted on: <%= c.created_at.strftime("%m/%d/%Y") %> </p>
         <p> <%= c.content %> </p>
         <p>Rating: <%= c.rating %> </p>
     </div>
