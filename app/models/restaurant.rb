@@ -28,6 +28,7 @@ class Restaurant < ApplicationRecord
         self.translations.sort_by { |t| t.dishes.size }.reverse
     end
 
+    
    
 
 

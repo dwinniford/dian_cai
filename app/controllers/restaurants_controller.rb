@@ -64,7 +64,7 @@ class RestaurantsController < ApplicationController
         elsif params[:q_cuisine]
             @restaurants = Cuisine.find(params[:q_cuisine][:id]).restaurants
         elsif params[:q_language]
-            @restaurants = Language.find(params[:q_language][:id]).restaurants
+            @restaurants = Language.restaurants_from_id(params[:q_language][:id])
         else 
             @restaurants = Restaurant.all         
         end
