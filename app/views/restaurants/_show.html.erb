@@ -38,10 +38,8 @@
     <div class="description">
         <p>Address: <%= full_address(@restaurant) %> </p>
 
-        <h4>Cuisine:</h4>
-        <% @restaurant.cuisines.each do |c| %>
-        <p><%= c.english_name %></p>
-        <% end %>
+        <h4>Cuisine: <%= restaurant_cuisines(@restaurant) %> </h4>
+        
         <p> Profile created by: <%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
         <nav class="restaurant">
             <%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) if user_has_permission?(@restaurant) %>

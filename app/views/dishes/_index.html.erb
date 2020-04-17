@@ -3,9 +3,9 @@
 
 <% dishes.each do |d| %>
 
-    <div class="top-content">
+    <div class="index-content">
         <div>
-            <%= cl_image_tag d.image.key, width: 450 if d.image.attached? %>
+            <%= cl_image_tag d.image.key, width: 300 if d.image.attached? %>
         </div>
         <div class="description">
             <h3><span lang="zh"> <%= d.chinese_name %> </span><%= link_to non_chinese_names(d), dish_path(d) %></h3>
