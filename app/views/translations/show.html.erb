@@ -11,19 +11,20 @@
             by: <%= link_to  @translation.user.name, user_path(@translation.user) %>
         </h3>
         <p><%= @translation.notes %> </p>
+        <% if user_has_permission?(@translation) %>
+            <nav id="translation">
+                <%= link_to  "Edit", edit_translation_path(@translation) %>
+                <%= link_to  "Delete", translation_path(@translation), method: "delete" %>
+                <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
+            </nav>
+            <br>
+            <br>
+        <% end %>
     </div>
 </div>
 
 
-<% if user_has_permission?(@translation) %>
-    <nav id="translation">
-        <%= link_to  "Edit", edit_translation_path(@translation) %>
-        <%= link_to  "Delete", translation_path(@translation), method: "delete" %>
-        <%= link_to  "Add Dish", new_translation_dish_path(@translation) %>
-    </nav>
-    <br>
-    <br>
-<% end %>
+
 
 <div class="dish_list">
     <%= render  partial: "dishes/index", locals: {dishes: @translation.dishes } %>
