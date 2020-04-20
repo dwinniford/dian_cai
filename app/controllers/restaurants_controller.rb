@@ -35,8 +35,13 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy 
-        @restaurant.destroy
-        redirect_to restaurants_path, notice: "Restaurant was successfully destroyed."
+        if @restaurant.translations.length >= 1
+            flash.alert= "Could not delete restaurant."
+            render template: "restaurants/show"
+        else 
+            @restaurant.destroy
+            redirect_to restaurants_path, notice: "Restaurant was successfully destroyed."
+        end
     end
 
     private 
