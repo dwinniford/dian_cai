@@ -66,6 +66,8 @@ class RestaurantsController < ApplicationController
             @restaurants = @user.restaurants 
         elsif params[:q_city]
             @restaurants = Restaurant.where("city = ?", params[:q_city])
+        elsif params[:q_name]
+            @restaurants = Restaurant.where("translated_name = ?", params[:q_name])
         elsif params[:q_cuisine]
             @restaurants = Cuisine.find(params[:q_cuisine][:id]).restaurants
         elsif params[:q_language]
