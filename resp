@@ -1,0 +1,24 @@
+
+[1mFrom:[0m /mnt/c/Users/David Winniford/Documents/Code/dian_cai/app/controllers/polly_controller.rb:12 PollyController#read:
+
+     [1;34m4[0m: [32mdef[0m [1;34mread[0m 
+     [1;34m5[0m:     polly = [1;34;4mAws[0m::[1;34;4mPolly[0m::[1;34;4mClient[0m.new
+     [1;34m6[0m: 
+     [1;34m7[0m:     resp = polly.synthesize_speech({
+     [1;34m8[0m:         [35moutput_format[0m: [31m[1;31m"[0m[31mmp3[1;31m"[0m[31m[0m,
+     [1;34m9[0m:         [35mtext[0m: params[[33m:text[0m],
+    [1;34m10[0m:         [35mvoice_id[0m: [31m[1;31m"[0m[31mZhiyu[1;31m"[0m[31m[0m,
+    [1;34m11[0m:     })
+ => [1;34m12[0m:    binding.pry 
+    [1;34m13[0m:     [1;34m# response.headers['Content-Type'] = "mp3/event-stream"[0m
+    [1;34m14[0m:     [1;34m# response.stream.write  resp.audio_stream[0m
+    [1;34m15[0m:     [1;34m# response.stream.close[0m
+    [1;34m16[0m:     [1;34m# rails error: undefined method `empty?' for #<StringIO:0x00007fbc8c3ef198>[0m
+    [1;34m17[0m:    
+    [1;34m18[0m:     [1;34m# send_data resp.audio_stream, filename: "#{params[:text]}.mp3", disposition: 'attachment'[0m
+    [1;34m19[0m:     [1;34m#terminal: sent data (filename) browser console: failed to load because no supported source was found[0m
+    [1;34m20[0m: 
+    [1;34m21[0m:     [1;34;4mIO[0m.copy_stream(resp.audio_stream, [31m[1;31m"[0m[31m#{params[:text]}[0m[31m.mp3[1;31m"[0m[31m[0m) [1;34m# successfully creates audio file in app folder[0m
+    [1;34m22[0m:     send_file [31m[1;31m"[0m[31m#{params[:text]}[0m[31m.mp3[1;31m"[0m[31m[0m
+    [1;34m23[0m: [32mend[0m
+

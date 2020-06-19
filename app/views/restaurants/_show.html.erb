@@ -1,23 +1,5 @@
 
 
-<head>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var input = document.getElementById('input'),
-                text = document.getElementById('text'),
-                player = document.getElementById('player'),
-                submit = document.getElementById('submit');
-                
-            input.addEventListener('submit', function (event) {
-            
-                player.src = '/read?text=' + encodeURIComponent(text.value);
-                player.play();
-            
-                event.preventDefault();
-            });
-        });
-    </script>
-</head>
 
 
 <audio id="player"></audio>
@@ -53,5 +35,20 @@
         </nav>
     </div>
 </div>
-
+<script>
+        // document.addEventListener("DOMContentLoaded", function () {
+        //     var input = document.getElementById('input'),
+        //         text = document.getElementById('text'),
+        //         player = document.getElementById('player'),
+        //         submit = document.getElementById('submit');
+                
+        //     input.addEventListener('submit', function (event) {
+            
+        //         player.src = '/read?text=' + encodeURIComponent(text.value);
+        //         player.play();
+            
+        //         event.preventDefault();
+        //     });
+        // });
+    </script>
 
