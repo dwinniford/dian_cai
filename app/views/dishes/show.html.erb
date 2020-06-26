@@ -3,6 +3,10 @@
         <%= cl_image_tag @dish.image.key, width: 450 if @dish.image.attached? %>
         <div class="name-overlay">
             <h1><span lang="zh"> <%= @dish.chinese_name %> </span><%= non_chinese_names(@dish) %></h1>
+            <form id="input" method="GET" action="/read">
+                <%= hidden_field_tag(:text, @dish.chinese_name) %>
+                <input type="submit" value="Listen" id="submit" />
+            </form>
         </div>
     </div>
 
