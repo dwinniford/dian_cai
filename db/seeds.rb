@@ -6,23 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Cuisine.create(chinese_name: "东北", pinyin_name: "DongBei", english_name: "Northeastern") id 2
-# Cuisine.create(chinese_name: "粤菜", pinyin_name: "YueCai", english_name: "Cantonese") 3
-# Cuisine.create(chinese_name: "川菜", pinyin_name: "ChuanCai", english_name: "Sichuan") 4
-# Cuisine.create(chinese_name: "湘菜", pinyin_name: "XiangCai", english_name: "Hunan") 5
-# Cuisine.create(chinese_name: "徽菜", pinyin_name: "HuiCai", english_name: "Anhui") 6
-# Cuisine.create(chinese_name: "闽菜", pinyin_name: "MinCai", english_name: "Fujian") 7
-# Cuisine.create(chinese_name: "苏菜", pinyin_name: "SuCai", english_name: "Jiangsu") 8
-# Cuisine.create(chinese_name: "鲁菜", pinyin_name: "LuCai", english_name: "Shandong") 9
-# Cuisine.create(chinese_name: "浙菜", pinyin_name: "ZheCai", english_name: "Zhejiang") 10
+Cuisine.create(chinese_name: "东北", pinyin_name: "DongBei", english_name: "Northeastern")
+Cuisine.create(chinese_name: "粤菜", pinyin_name: "YueCai", english_name: "Cantonese")
+Cuisine.create(chinese_name: "川菜", pinyin_name: "ChuanCai", english_name: "Sichuan")
+Cuisine.create(chinese_name: "湘菜", pinyin_name: "XiangCai", english_name: "Hunan")
+Cuisine.create(chinese_name: "徽菜", pinyin_name: "HuiCai", english_name: "Anhui")
+Cuisine.create(chinese_name: "闽菜", pinyin_name: "MinCai", english_name: "Fujian")
+Cuisine.create(chinese_name: "苏菜", pinyin_name: "SuCai", english_name: "Jiangsu")
+Cuisine.create(chinese_name: "鲁菜", pinyin_name: "LuCai", english_name: "Shandong")
+Cuisine.create(chinese_name: "浙菜", pinyin_name: "ZheCai", english_name: "Zhejiang") 
 
-# Language.create(name: "english", english_name: "English")
-# Language.create(name: "한국어", english_name: "Korean")
-# Language.create(name: "日本語", english_name: "Japanese")
-# Language.create(name: "deutsche", english_name: "German")
-# Language.create(name: "française", english_name: "French")
-# Language.create(name: "español", english_name: "Spanish")
-# Language.create(name: "русский", english_name: "Russian")
+Language.create(name: "english", english_name: "English")
+Language.create(name: "한국어", english_name: "Korean")
+Language.create(name: "日本語", english_name: "Japanese")
+Language.create(name: "deutsche", english_name: "German")
+Language.create(name: "française", english_name: "French")
+Language.create(name: "español", english_name: "Spanish")
+Language.create(name: "русский", english_name: "Russian")
 
 
 frodo = User.create(name: "Frodo Baggins", email: "frodo@bagend.com", password: "frodo")
