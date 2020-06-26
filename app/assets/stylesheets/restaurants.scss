@@ -14,7 +14,6 @@
   body {
     font-family: aleoLight;
     background-image: url(dimsum_table.jpg);
-    // height: 1000px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -46,51 +45,21 @@
 
   .translation-item img {
     width: 100%;
-    // object-fit: cover;
   }
 
   div.order-info {
     grid-row: span 2;
   }
 
-  // .restaurant-list {
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  // }
-
-  // .restaurant-item {
-  //   padding: 10px;
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  // }
   .restaurant-index-options {
     text-align: center;
     // not working
     grid-column: 1 / -1;
   }
 
-  // .image-name {
-  //   position: relative;
-  // }
-  
-  /* Bottom right text */
-  // h2.name {
-  //   position: absolute;
-  //   top: 20px;
-  //   left: 20px;
-  //   background: rgba(255, 255, 255, 0.9); 
-  //   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  //   padding-left: 20px;
-  //   padding-right: 20px;
-  // }
-
   .top-content {
     display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
     grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
-    // grid-template-columns: 450px;
-    // grid-auto-flow: column;
-    // grid-auto-columns: minmax(200px, 1fr);
     grid-gap: 20px;
     
   }
@@ -124,12 +93,22 @@
 
   .index-content {
     display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(450px, max-content));
     grid-template-columns: repeat(auto-fit, 300px);
-    // grid-template-columns: 450px;
-    // grid-auto-flow: column;
-    // grid-auto-columns: minmax(200px, 1fr);
     grid-gap: 20px;
     padding: 20px;
     
+  }
+
+  @media (max-width: 400px) {
+    body {
+      grid-template-columns: 1fr;
+      margin: 0px;
+    }
+
+    main {
+      grid-column: 1;
+    }
+    .index-content {
+      grid-template-columns: 1fr;
+    }
   }
