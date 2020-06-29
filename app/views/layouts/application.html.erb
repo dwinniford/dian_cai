@@ -18,27 +18,37 @@
 
       <nav>
         <%= image_tag  "bb_logo_cropped.png", class: "logo" %>
-        <%= link_to  "View Restuarants", restaurants_path %>
+        
         <div class="user-links">
+          <button class="border-button">
+            <%= link_to  "View Restuarants", restaurants_path %>
+          </button>
+
           <% if session[:user_id] %>
             <% if current_user.image%>
               <div id="avatar">
                 <img src="<%= current_user.image %>" alt="User Avatar">
               </div>
             <% end %>
-            <div class="link1">
-              <%= link_to  "Logged in as: #{current_user.name}", user_path(current_user) %>
-            </div>
-            <div class="link2">
-              <%= link_to  "Logout", sessions_path, method: "delete" %>
-            </div>
+           
+              <button class="border-button">
+                <%= link_to  "Logged in as: #{current_user.name}", user_path(current_user) %>
+              </button>
+            
+            
+              <button class="border-button">
+                <%= link_to  "Logout", sessions_path, method: "delete" %>
+              </button>
+            
           <% else %>
-              <div class="link1">
-                <%= link_to  "Login", login_path %>
-              </div>
-              <div class="link2">
-                <%= link_to  "Signup", new_user_path  %>
-              </div>
+              
+                <button class="border-button">
+                  <%= link_to  "Login", login_path %>
+                </button>
+                <button class="border-button">
+                  <%= link_to  "Signup", new_user_path  %>
+                </button>
+              
           <% end %>
         </div>
       </nav>
