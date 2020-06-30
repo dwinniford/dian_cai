@@ -3,10 +3,14 @@
 
 <%= render  partial: "translations/index", locals: {translations: @restaurant.top_rated_translations(3) } %>
 
-<%= link_to  "View All Tranlations", restaurant_translations_path(@restaurant) %>
+<button class="border-button">
+    <%= link_to  "View All Tranlations", restaurant_translations_path(@restaurant) %>
+</button>
 
 <%= render  partial: "orders/index", locals: {orders: @restaurant.most_recent_orders(3)} %>
 
-<%= link_to  "View All Orders", restaurant_orders_path(@restaurant) %>
+<button class="border-button">
+    <%= link_to  "View All Orders", restaurant_orders_path(@restaurant) %>
+</button>
 
 

@@ -11,7 +11,7 @@
             <h1 lang="zh"><%= @restaurant.chinese_name %> </h1>
             <form id="input" method="GET" action="/read">
                 <%= hidden_field_tag(:text, @restaurant.chinese_name) %>
-                <input type="submit" value="Listen" id="submit" />
+                <input type="submit" value="Listen" id="submit" class="border-button" />
             </form>
             <h2 class="name"><%= non_chinese_names(@restaurant) %> </h2>
         </div>
@@ -22,7 +22,12 @@
 
         <p>Cuisine: <%= restaurant_cuisines(@restaurant) %> </p>
         
-        <p> Profile created by: <%= link_to @restaurant.user.name, user_path(@restaurant.user) %></p>
+        <p> Profile created by: 
+            <button class="border-button">
+                <%= link_to @restaurant.user.name, user_path(@restaurant.user) %>
+            </button>
+            
+        </p>
         <nav class="restaurant">
             <%= link_to  "Edit Restaurant Profile", edit_restaurant_path(@restaurant) if user_has_permission?(@restaurant) %>
             <%= link_to  "Delete", restaurant_path(@restaurant), method: "delete", data: { confirm: 'Are you sure?' } if user_has_permission?(@restaurant) %>

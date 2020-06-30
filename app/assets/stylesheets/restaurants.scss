@@ -134,3 +134,21 @@
   font-size: larger;
   align-self: center;
 }
+
+nav.restaurant > a {
+  display: inline-block;
+  border: solid;
+  padding: 1rem 1rem;
+  margin: 0;
+  text-decoration: none;
+  background: none;
+  color: black;
+  font-family: aleoLight;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
