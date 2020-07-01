@@ -17,9 +17,9 @@
         <%= cl_image_tag r.restaurant_image.key, width: 300 if r.restaurant_image.attached? %>
         <div class="index-description">            
             <h2 lang="zh"> <%= r.chinese_name%> </h2>
-            <button class="border-button">
+            
             <%= link_to  non_chinese_names(r), restaurant_path(r) %> 
-            </button>
+            
             <br>
             <p><%= full_address(r) %></p>
             <p>Number of menu translations: <%= r.translations.count %> </p>

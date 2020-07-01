@@ -3,12 +3,11 @@
     <% translations.each do |t| %>
         <div class="translation-item">
             <div class="translation-info">
-                <button class="border-button">
+                
                     <%= link_to t.title, translation_path(t) %>
-                </button>
-                <button class="border-button">
+                
                     by <%= link_to t.user.name, user_path(t.user) %>
-                </button>
+                
                 <p><%= t.created_at.strftime("%m/%d/%Y") %></p>
                 <p> <%= t.notes %> </p>
                 <p> <%= t.dishes.count %> dishes </p>

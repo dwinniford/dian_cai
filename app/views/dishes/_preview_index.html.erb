@@ -3,9 +3,9 @@
         <%= cl_image_tag dish.image.key, width: 150 if dish.image.attached? %>
         <div class="dish-preview-info">
             <h4 lang="zh"><%= dish.chinese_name %></h4>
-            <button class="border-button">
+            
                 <%= link_to non_chinese_names(dish), dish_path(dish) %>
-            </button>
+            
             
             <p> <%= dish.description %> </p>
         </div>

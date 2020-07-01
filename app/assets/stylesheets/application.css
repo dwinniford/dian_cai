@@ -56,7 +56,8 @@ nav {
 }
 
 
-.border-button {
+
+a, button, input#submit {
   display: inline-block;
   border: solid;
   padding: 1rem 1rem;
@@ -74,19 +75,6 @@ nav {
   -moz-appearance: none;
 }
 
-
-
-a {
-  color: black;
-  text-decoration: none;
-  font-weight: bolder;
-  /* border: solid;
-  padding: 1rem 1rem; */
-}
-
-/* a:hover {
-  font-size: 150%;
-} */
 
 nav a {
   font-size: 20px;  

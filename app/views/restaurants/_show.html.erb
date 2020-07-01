@@ -23,9 +23,9 @@
         <p>Cuisine: <%= restaurant_cuisines(@restaurant) %> </p>
         
         <p> Profile created by: 
-            <button class="border-button">
+            
                 <%= link_to @restaurant.user.name, user_path(@restaurant.user) %>
-            </button>
+            
             
         </p>
         <nav class="restaurant">
