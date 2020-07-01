@@ -1,25 +1,23 @@
 <div class="search">
 <%= form_with(url: "/restaurants", method: "get", local: true, class: "one-line-form") do %>
-    <%= label_tag(:q_city, "Search by City") %>
     <%= text_field_tag(:q_city) %>
-    <%= submit_tag "Search", class: "border-button" %>
+    <%= submit_tag "City", class: "border-button" %>
 <% end %>
 
 <%= form_with(url: "/restaurants", method: "get", local: true, class: "one-line-form") do %>
-    <%= label_tag(:q_name, "Search by Restaurant (translated) name") %>
     <%= text_field_tag(:q_name) %>
-    <%= submit_tag "Search", class: "border-button" %>
+    <%= submit_tag "Name", class: "border-button" %>
 <% end %>
 
 <%= form_with(url: "/restaurants", method: "get", local: true, class: "one-line-form") do %>
-    <%= label_tag(:q_cuisine, "Select Cuisine") %>
+    
     <%= collection_select(:q_cuisine, :id, Cuisine.all, :id, :english_name) %>
-    <%= submit_tag "Search", class: "border-button" %>
+    <%= submit_tag "Cuisine", class: "border-button" %>
 <% end %>
 
 <%= form_with(url: "/restaurants", method: "get", local: true, class: "one-line-form") do %>
-    <%= label_tag(:q_language, "Select Language") %>
+    
     <%= collection_select(:q_language, :id, Language.all, :id, :name) %>
-    <%= submit_tag "Search", class: "border-button" %>
+    <%= submit_tag "Language", class: "border-button" %>
 <% end %>
 </div>

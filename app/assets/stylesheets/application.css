@@ -49,15 +49,23 @@ nav {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 5px
 }
-@media (max-width: 520px) {
+@media (max-width: 600px) {
   nav {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100px 1fr;
+  }
+  img.logo {
+    width: 100%
+  }
+}
+@media (max-width: 400px) {
+  nav {
+    grid-template-columns: 200px;
   }
 }
 
 
 
-a, button, input#submit {
+a, button, input#submit, input.border-button {
   display: inline-block;
   border: solid;
   padding: 1rem 1rem;
@@ -80,24 +88,6 @@ nav a {
   font-size: 20px;  
 }
 
-/* div.user-links {
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: repeat(3, 1fr);
-}
-#avatar {
-  grid-column: span 1 / -1;
-  /* text-align: right; */
-/* } */
-/* div.user-links>div.link1 { */
-  /* grid-column: span 3 / -1; */
-  /* text-align: right; 
-} */
-
-/* div.user-links>div.link2 {
-  grid-column: span 3 / -1;
-  text-align: right; 
- } */ 
 
 :lang(zh) {
   font-family: maShanZheng-regular;
