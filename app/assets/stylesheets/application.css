@@ -59,7 +59,7 @@ nav {
 }
 @media (max-width: 400px) {
   nav {
-    grid-template-columns: 200px;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
