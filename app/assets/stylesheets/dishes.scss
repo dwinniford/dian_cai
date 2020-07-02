@@ -9,3 +9,14 @@
     grid-gap: 10px;
     align-content: center;
 }
+
+.dish-preview img {
+    width: 100%;
+}
+
+@media (max-width: 400px) {
+    .dish-preview {
+        grid-template-columns: 1fr;
+    }
+    
+}
