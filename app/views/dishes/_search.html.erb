@@ -1,11 +1,11 @@
 <h3>Sort Dishes By:</h3>
 <%= form_with(url: restaurant_dishes_path(@restaurant), method: "get", local: true) do %>
     <%= select_tag(:order_by, options_for_select([["Translation Rating", "translation_rating"], ["Spicy Level", "spicy"], ["Date Posted", "created_at"]])) %>
-    <%= submit_tag "Sort" %>
+    <%= submit_tag "Sort", class: "border-button" %>
 <% end %>
 
 <%= form_with(url: restaurant_dishes_path(@restaurant), method: "get", local: true) do %>
 <%= label_tag :q, "Search for ingredient" %>
 <%= text_field_tag (:q) %>
-<%= submit_tag "Search" %>
+<%= submit_tag "Search", class: "border-button" %>
 <% end %>
