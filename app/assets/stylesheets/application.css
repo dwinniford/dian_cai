@@ -40,6 +40,13 @@ div.alert {
 }
 nav {
   display: grid; 
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  align-items: center;
+}
+
+nav.top-nav {
+  display: grid; 
   grid-template-columns: 220px 1fr;
   grid-gap: 5px;
   align-items: center;
@@ -50,7 +57,7 @@ nav {
   grid-gap: 5px
 }
 @media (max-width: 600px) {
-  nav {
+  nav.top-nav {
     grid-template-columns: 100px 1fr;
   }
   img.logo {
@@ -58,7 +65,7 @@ nav {
   }
 }
 @media (max-width: 400px) {
-  nav {
+  nav.top-nav {
     grid-template-columns: 1fr 1fr;
   }
 }
