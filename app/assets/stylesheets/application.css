@@ -53,7 +53,7 @@ nav.top-nav {
 }
 .user-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 5px
 }
 @media (max-width: 600px) {
