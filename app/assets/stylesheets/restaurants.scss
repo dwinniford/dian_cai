@@ -110,17 +110,23 @@
       grid-column: 1;
     }
     .index-content {
-      grid-template-columns: 300px;
+      grid-template-columns: 1fr;
       padding: 0;
     }
     .one-line-form {
       /* background: rgba(0, 0, 0, 0.7); */
       padding: 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 5px;
-      // color: white;
-      font-size: larger;
+    }
+    
+
+    .top-content {
+      grid-template-columns: 1fr;
+    }
+    .top-content > div > img {
+      width: 100%;
+    }
+    .index-description {
+      width: 100%
     }
     
     
@@ -139,7 +145,7 @@
 .one-line-form > input, select {
   background-color: rgba(0, 0, 0, 0);
   // color: white;
-  font-size: larger
+  // font-size: larger
 }
 .one-line-form > label {
   font-size: larger;
